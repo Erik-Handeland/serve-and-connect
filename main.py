@@ -16,13 +16,28 @@ class LocationSearch(ndb.Model):
 
 class LoginPage(webapp2.RequestHandler):
     def get(self):
-        location_template = jinja_env.get_template('location.html')
-        zipcode = self.request.get("zipcode")
-        self.response.write(location_template.render(zipcode))
-        
-    def post(self):
         login_template = jinja_env.get_template('login.html')
+        zipcode = self.request.get("zipcode")
         self.response.write(login_template.render())
+
+    def post(self):
+        community_template = jinja_env.get_template('community.html')
+        self.response.write(community_template.render())
+
+class CommunityPage(webapp2.RequestHandler):
+    def get(self):
+        community_template = jinja_env.get_template('community.html')
+        self.response.write(community_template.render())
+
+class FriendsPage(webapp2.RequestHandler):
+    def get(self):
+        friends_template = jinja_env.get_template('friends.html')
+        self.response.write(friends_template.render())
+
+class ProfilePage(webapp2.RequestHandler):
+    def get(self):
+        profile_template = jinja_env.get_template('profile.html')
+        self.response.write(profile_template.render())
 
 
     # def get(self):
@@ -39,4 +54,8 @@ class LoginPage(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
     ('/login', LoginPage),
+    ('/home', CommunityPage),
+    ('/community', CommunityPage),
+    ('/friends', FriendsPage),
+    ('/profile', ProfilePage),
 ], debug=True)
