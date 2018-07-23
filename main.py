@@ -4,8 +4,8 @@ import os
 import json
 import urllib
 import urllib2
-from google.appengine.ext import ndb
 
+from google.appengine.ext import ndb
 jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(
         os.path.dirname(__file__) + "/templates"))
@@ -39,18 +39,6 @@ class ProfilePage(webapp2.RequestHandler):
         profile_template = jinja_env.get_template('profile.html')
         self.response.write(profile_template.render())
 
-
-    # def get(self):
-    #     city = self.request.get("city")
-    #     state = self.request.get("state")
-    #     location_template = jinja_env.get_template('location.html')
-    #     params = {"city": city,
-    #             "state": state,
-    #             }
-    #     api_url = city + ", " + state
-    #     api_url = "https://www.zipcodeapi.com/rest/"+ "RAU0IsJOFZxVEgTEAlllssd44GJm9euGb3gtYaAbNWxYv9f7bCFluUnLczMAA1OTr" + "/city-zips." + "json/" + city + "/" + state
-    #     self.response.write(location_template.render())
-    #     print api_url
 
 app = webapp2.WSGIApplication([
     ('/login', LoginPage),
