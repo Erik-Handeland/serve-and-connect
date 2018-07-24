@@ -12,6 +12,7 @@ jinja_env = jinja2.Environment(
         os.path.dirname(__file__) + "/templates"))
 
 # ----------------------------------------------------------------------------------
+# creates and adds users to database
 
 def find_or_create_user():
      user = users.get_current_user()
@@ -38,7 +39,7 @@ class JUser(ndb.Model):
     email = ndb.StringProperty(required=True)
     bio = ndb.StringProperty(required=False)
 
-class LoginPage(webapp2.RequestHandler):
+class HomePage(webapp2.RequestHandler):
     def get(self):
 
         user = find_or_create_user()
@@ -48,33 +49,24 @@ class LoginPage(webapp2.RequestHandler):
                     "log_url": log_url}
 
 
-        template = jinja_env.get_template("login.html")
-        self.response.write(template.render(variables))
-
-class ProfileHandler(webapp2.RequestHandler):
-    def get(self):
-        user = find_or_create_user()
-        variables = {"user": user}
-        template = jinja_env.get_template("profile2.html")
-        self.response.write(template.render(variables))
-
-
-    def post(self):
-        user = find_or_create_user()
-        bio = self.request.get("bio")
-        user.bio = bio
-        user.put()
-
-        variables = {"user": user}
-        template = jinja_env.get_template("profile2.html")
-        self.response.write(template.render(variables))
+        home_template = jinja_env.get_template('home.html')
+        self.response.write(home_template.render(variables))
 
 # ----------------------------------------------------------------------------------
+# create post and profile page
 
-class HomePage(webapp2.RequestHandler):
+class PostPage(webapp2.RequestHandler):
     def get(self):
-        home_template = jinja_env.get_template('home.html')
-        self.response.write(home_template.render())
+        post_event = self.request.get("post_event")
+        post_location = self.request.get("post_location")
+        post_time = self.request.get("post_time")
+
+        post_template = jinja_env.get_template('post.html')
+        self.response.write(post_template.render())
+
+
+# ----------------------------------------------------------------------------------
+# classes for each webpage
 
 class CommunityPage(webapp2.RequestHandler):
     def get(self):
@@ -87,17 +79,31 @@ class FriendsPage(webapp2.RequestHandler):
         self.response.write(friends_template.render())
 
 class ProfilePage(webapp2.RequestHandler):
+
     def get(self):
-        profile_template = jinja_env.get_template('profile.html')
-        self.response.write(profile_template.render())
+        user = find_or_create_user()
+        variables = {"user": user}
+        template = jinja_env.get_template("profile.html")
+        self.response.write(template.render(variables))
+
+
+    def post(self):
+        user = find_or_create_user()
+        bio = self.request.get("bio")
+        user.bio = bio
+        user.put()
+
+        variables = {"user": user}
+        template = jinja_env.get_template("profile.html")
+        self.response.write(template.render(variables))
+
 
 
 app = webapp2.WSGIApplication([
-    ('/login', LoginPage),
-    ('/login2', ProfileHandler),
-    ('/home', CommunityPage),
+    ('/home', HomePage),
     ('/community', CommunityPage),
     ('/friends', FriendsPage),
     ('/profile', ProfilePage),
     ('/', HomePage),
+    ('/post', PostPage),
 ], debug=True)

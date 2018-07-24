@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
+    <link rel="shortcut icon" type="image/png" href="template/images/favicon.ico"/>
     <title>Serve + Connect</title>
 
     <!-- Bootstrap Core CSS -->
@@ -35,13 +35,13 @@
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="community.html">Community</a>
+                        <a href="community">Community</a>
                     </li>
                     <li>
-                        <a href="friends.html">Friends</a>
+                        <a href="friends">Friends</a>
                     </li>
                     <li>
-                        <a href="profile.html">Profile</a>
+                        <a href="profile">Profile</a>
                     </li>
                 </ul>
 
@@ -57,12 +57,11 @@
                 <p>From Compassion to Action</p>
 
              <form method='get' id='login'>
-                 <a href="login" class="btn btn-primary btn-lg">Sign in</a></div>
-                 {% if user %}
-                  <a href='{{url}}'>logged in test</a>
-                    {% else %}
-                  <a href='{{url}}'>logged out test</a>
-                    {% endif %}
+
+                 <a href="{{log_url}}" class="btn btn-primary btn-lg">Sign in</a></div>
+
+                  <a href='{{url}}'>log out</a>
+
             </form>
             </div>
         </div>
@@ -105,7 +104,7 @@
         <!-- Copyright etc -->
         <div class="small-print">
         	<div class="container">
-        		<p>Team 405 Error:</br>
+        		<p>Team Git Coding:</br>
               Erik, Jordan, Lina</p>
         	</div>
         </div>
