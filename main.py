@@ -77,7 +77,7 @@ class PostPage(webapp2.RequestHandler):
                             post_location = post_location,
                             post_event = post_event)
         JUserPost.put()
-        self.redirect('/community')
+        self.redirect('/profile')
 
 # ----------------------------------------------------------------------------------
 # classes for each webpage
