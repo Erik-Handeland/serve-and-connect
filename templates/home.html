@@ -57,12 +57,10 @@
                 <p>From Compassion to Action</p>
 
              <form method='get' id='login'>
-                 <a href="login" class="btn btn-primary btn-lg">Sign in</a></div>
-                 {% if user %}
-                  <a href='{{url}}'>logged in test</a>
-                    {% else %}
-                  <a href='{{url}}'>logged out test</a>
-                    {% endif %}
+                 <a href="{{log_url}}" class="btn btn-primary btn-lg">Sign in</a></div>
+
+                  <a href='{{url}}'>log out</a>
+
             </form>
             </div>
         </div>
