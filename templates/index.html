@@ -57,13 +57,15 @@
             <div class="header-content-inner">
                 <h1>Serve + Connect</h1>
                 <p>From Compassion to Action</p>
-              <div>  <a href="#" class="btn btn-primary btn-lg">Sign in</a>
-                {% if user %}
+
+             <form method='get' id='login'>
+                 <a href="login" class="btn btn-primary btn-lg">Sign in</a></div>
+                 {% if user %}
                   <a href='{{url}}'>logged in test</a>
                     {% else %}
                   <a href='{{url}}'>logged out test</a>
                     {% endif %}
-              </div>
+            </form>
             </div>
         </div>
     </header>
