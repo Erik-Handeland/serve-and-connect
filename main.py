@@ -10,9 +10,10 @@ jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(
         os.path.dirname(__file__) + "/templates"))
 
-class LocationSearch(ndb.Model):
-    city = ndb.StringProperty(required = True)
-    state = ndb.StringProperty(required = True)
+class IndexPage(webapp2.RequestHandler):
+    def get(self):
+        index_template = jinja_env.get_template('index.html')
+        self.response.write(index_template.render())
 
 class LoginPage(webapp2.RequestHandler):
     def get(self):
@@ -46,4 +47,5 @@ app = webapp2.WSGIApplication([
     ('/community', CommunityPage),
     ('/friends', FriendsPage),
     ('/profile', ProfilePage),
+    ('/index', IndexPage),
 ], debug=True)
