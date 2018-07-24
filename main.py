@@ -71,10 +71,10 @@ class ProfileHandler(webapp2.RequestHandler):
 
 # ----------------------------------------------------------------------------------
 
-class IndexPage(webapp2.RequestHandler):
+class HomePage(webapp2.RequestHandler):
     def get(self):
-        index_template = jinja_env.get_template('index.html')
-        self.response.write(index_template.render())
+        home_template = jinja_env.get_template('home.html')
+        self.response.write(home_template.render())
 
 class CommunityPage(webapp2.RequestHandler):
     def get(self):
@@ -99,5 +99,5 @@ app = webapp2.WSGIApplication([
     ('/community', CommunityPage),
     ('/friends', FriendsPage),
     ('/profile', ProfilePage),
-    ('/index', IndexPage),
+    ('/', HomePage),
 ], debug=True)
