@@ -45,6 +45,7 @@ class HomePage(webapp2.RequestHandler):
 
         user = find_or_create_user()
         log_url = get_log_inout_url(user)
+        
 
         variables = {"user": user,
                     "log_url": log_url}
