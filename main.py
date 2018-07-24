@@ -45,10 +45,16 @@ class HomePage(webapp2.RequestHandler):
 
         user = find_or_create_user()
         log_url = get_log_inout_url(user)
+        if user:
+            log_message='Sign Out'
+
+        else:
+            log_message = "Sign In"
 
 
         variables = {"user": user,
-                    "log_url": log_url}
+                    "log_url": log_url,
+                    "log_message": log_message}
 
 
         home_template = jinja_env.get_template('home.html')

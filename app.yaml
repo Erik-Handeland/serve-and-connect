@@ -3,8 +3,6 @@ api_version: 1
 threadsafe: true
 
 handlers:
-- url: /templates/images
-  static_dir: templates/images
 - url: /css
   static_dir: css
 - url: /js
