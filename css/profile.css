@@ -1,11 +1,17 @@
-#avatar{
-  
+textarea{
+  background-color:#d0dffc;
+  border-radius: 10px;
+  font-size: 18px;
+
+
 }
+#avatar{
+  padding top: 10px;
+}
+
 input{
-  width= 100%;
-  padding-left:: 30px;
-  padding-right: 80px;
-  padding-top: 20px;
+  padding-top: 15px;
+  padding-right: 50px;
   background-color:#d0dffc;
   box-sizing: border-box;
   border: 2px, solid, white;
@@ -14,7 +20,7 @@ input{
 }
 
 legend {
-    background-color: #000;
+    background-color: white;
     color: #fff;
     padding: 3px 6px;
 }
@@ -26,7 +32,7 @@ legend {
 label {
     margin-top: 1rem;
     display: block;
-    font-size: .8rem;
+    font-size: 15px;
 }
 
 
