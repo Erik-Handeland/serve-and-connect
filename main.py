@@ -55,6 +55,29 @@ class HomePage(webapp2.RequestHandler):
 # ----------------------------------------------------------------------------------
 # create post and profile page
 
+class PostPage(webapp2.RequestHandler):
+    def get(self):
+        post_event = self.request.get("post_event")
+        post_location = self.request.get("post_location")
+        post_time = self.request.get("post_time")
+
+        post_template = jinja_env.get_template('post.html')
+        self.response.write(post_template.render())
+
+
+# ----------------------------------------------------------------------------------
+# classes for each webpage
+
+class CommunityPage(webapp2.RequestHandler):
+    def get(self):
+        community_template = jinja_env.get_template('community.html')
+        self.response.write(community_template.render())
+
+class FriendsPage(webapp2.RequestHandler):
+    def get(self):
+        friends_template = jinja_env.get_template('friends.html')
+        self.response.write(friends_template.render())
+
 class ProfilePage(webapp2.RequestHandler):
 
     def get(self):
@@ -75,19 +98,6 @@ class ProfilePage(webapp2.RequestHandler):
         self.response.write(template.render(variables))
 
 
-# ----------------------------------------------------------------------------------
-# classes for each webpage
-
-class CommunityPage(webapp2.RequestHandler):
-    def get(self):
-        community_template = jinja_env.get_template('community.html')
-        self.response.write(community_template.render())
-
-class FriendsPage(webapp2.RequestHandler):
-    def get(self):
-        friends_template = jinja_env.get_template('friends.html')
-        self.response.write(friends_template.render())
-
 
 app = webapp2.WSGIApplication([
     ('/home', CommunityPage),
@@ -95,4 +105,5 @@ app = webapp2.WSGIApplication([
     ('/friends', FriendsPage),
     ('/profile', ProfilePage),
     ('/', HomePage),
+    ('/post', PostPage),
 ], debug=True)
