@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Serve + Connect</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->
+    <link href="../css/custom.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav id="siteNav" class="navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Logo -->
+
+                <a class="navbar-brand" href="#">
+
+                	SERVE + CONNECT
+                </a>
+
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="community.html">Community</a>
+                    </li>
+                    <li>
+                        <a href="friends.html">Friends</a>
+                    </li>
+                    <li>
+                        <a href="profile.html">Profile</a>
+                    </li>
+                </ul>
+
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container -->
+    </nav>
+
+	<!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1>Serve + Connect</h1>
+                <p>From Compassion to Action</p>
+
+             <form method='get' id='login'>
+                 <a href="login" class="btn btn-primary btn-lg">Sign in</a></div>
+                 {% if user %}
+                  <a href='{{url}}'>logged in test</a>
+                    {% else %}
+                  <a href='{{url}}'>logged out test</a>
+                    {% endif %}
+            </form>
+            </div>
+        </div>
+    </header>
+
+
+
+	<!-- Content 1 -->
+    <section class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <img class="img-responsive img-circle center-block" src="images/Volunteer_hands.jpg" alt="">
+                </div>
+                <div class="col-sm-6">
+                	<h2 class="section-header">More people.</br>More impact.</h2>
+                	<p class="lead text-muted">We believe everyone should have the chance to make a difference. That's why we make it easy for good people and good causes to connect.</p>
+                	<a href="#" class="btn btn-primary btn-lg">Search for Opportunities</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+	<!-- Footer -->
+    <footer class="page-footer">
+
+    	<!-- Contact Us -->
+        <div class="contact">
+        	<div class="container">
+				<h2 class="section-heading">Contact Us</h2>
+				<p> +1(23) 456 7890</p>
+				<p> info@example.com</p>
+        	</div>
+        </div>
+
+        <!-- Copyright etc -->
+        <div class="small-print">
+        	<div class="container">
+        		<p>Team 405 Error:</br>
+              Erik, Jordan, Lina</p>
+        	</div>
+        </div>
+
+    </footer>
+
+    <!-- jQuery -->
+    <script src="../js/jquery-1.11.3.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+
+
+    <!-- Custom Javascript -->
+    <script src="../js/custom.js"></script>
+
+</body>
+
+</html>
