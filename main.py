@@ -12,6 +12,7 @@ jinja_env = jinja2.Environment(
         os.path.dirname(__file__) + "/templates"))
 
 # ----------------------------------------------------------------------------------
+# creates and adds users to database
 
 def find_or_create_user():
      user = users.get_current_user()
@@ -70,6 +71,7 @@ class ProfileHandler(webapp2.RequestHandler):
         self.response.write(template.render(variables))
 
 # ----------------------------------------------------------------------------------
+# classes for each webpage
 
 class HomePage(webapp2.RequestHandler):
     def get(self):
