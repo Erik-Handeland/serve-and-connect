@@ -39,7 +39,7 @@ class JUser(ndb.Model):
     email = ndb.StringProperty(required=True)
     bio = ndb.StringProperty(required=False)
 
-class LoginPage(webapp2.RequestHandler):
+class HomePage(webapp2.RequestHandler):
     def get(self):
 
         user = find_or_create_user()
@@ -49,14 +49,15 @@ class LoginPage(webapp2.RequestHandler):
                     "log_url": log_url}
 
 
-        template = jinja_env.get_template("login.html")
-        self.response.write(template.render(variables))
+        home_template = jinja_env.get_template('home.html')
+        self.response.write(home_template.render(variables))
 
-class ProfileHandler(webapp2.RequestHandler):
+class ProfilePage(webapp2.RequestHandler):
+
     def get(self):
         user = find_or_create_user()
         variables = {"user": user}
-        template = jinja_env.get_template("profile2.html")
+        template = jinja_env.get_template("profile.html")
         self.response.write(template.render(variables))
 
 
@@ -67,16 +68,15 @@ class ProfileHandler(webapp2.RequestHandler):
         user.put()
 
         variables = {"user": user}
-        template = jinja_env.get_template("profile2.html")
+        template = jinja_env.get_template("profile.html")
         self.response.write(template.render(variables))
+
+    # def get(self):
+    #     profile_template = jinja_env.get_template('profile.html')
+    #     self.response.write(profile_template.render())
 
 # ----------------------------------------------------------------------------------
 # classes for each webpage
-
-class HomePage(webapp2.RequestHandler):
-    def get(self):
-        home_template = jinja_env.get_template('home.html')
-        self.response.write(home_template.render())
 
 class CommunityPage(webapp2.RequestHandler):
     def get(self):
@@ -88,15 +88,8 @@ class FriendsPage(webapp2.RequestHandler):
         friends_template = jinja_env.get_template('friends.html')
         self.response.write(friends_template.render())
 
-class ProfilePage(webapp2.RequestHandler):
-    def get(self):
-        profile_template = jinja_env.get_template('profile.html')
-        self.response.write(profile_template.render())
-
 
 app = webapp2.WSGIApplication([
-    ('/login', LoginPage),
-    ('/login2', ProfileHandler),
     ('/home', CommunityPage),
     ('/community', CommunityPage),
     ('/friends', FriendsPage),
