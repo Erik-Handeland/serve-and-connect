@@ -62,13 +62,14 @@ class PostPage(webapp2.RequestHandler):
         post_template = jinja_env.get_template('post.html')
         self.response.write(post_template.render())
     def post(self):
-        post_event = self.request.get("post_event")
+        post_name = self.request.get("post_name")
         post_location = self.request.get("post_location")
-        picture_id = self.request.get("picture_id")
+        post_event = self.request.get("post_event")
 
-        JUserPost = UserPost(post_event = post_event,
+        JUserPost = UserPost(
+                            post_name = post_name,
                             post_location = post_location,
-                            picture_id = picture_id)
+                            post_event = post_event),
         JUserPost.put()
         self.redirect('/community')
 
