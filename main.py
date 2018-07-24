@@ -95,19 +95,18 @@ class FriendsPage(webapp2.RequestHandler):
 class ProfilePage(webapp2.RequestHandler):
 
     def get(self):
+        post_date = UserPost.query().order(UserPost.created_at).fetch(limit=10)
         user = find_or_create_user()
-        variables = {"user": user}
+        variables = {"user": user,
+                    "post_date": post_date}
         template = jinja_env.get_template("profile.html")
         self.response.write(template.render(variables))
 
-
     def post(self):
-        user = find_or_create_user()
-        bio = self.request.get("bio")
-        user.bio = bio
-        user.put()
+        post_date = UserPost.query().order(UserPost.created_at).fetch(limit=10)
 
-        variables = {"user": user}
+        variables = {"user": user,
+                    "post_date": post_date}
         template = jinja_env.get_template("profile.html")
         self.response.write(template.render(variables))
 
