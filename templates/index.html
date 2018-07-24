@@ -29,7 +29,7 @@
             <div class="navbar-header">
 
                 <a class="navbar-brand" href="#">
-                	
+
                 	SERVE + CONNECT
                 </a>
             </div>
@@ -37,13 +37,13 @@
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active">
-                        <a href="#">Community</a>
+                        <a href="community">Community</a>
                     </li>
                     <li>
-                        <a href="#">Friends</a>
+                        <a href="friends">Friends</a>
                     </li>
                     <li>
-                        <a href="#">Profile</a>
+                        <a href="profile">Profile</a>
                     </li>
                 </ul>
 
@@ -57,7 +57,13 @@
             <div class="header-content-inner">
                 <h1>Serve + Connect</h1>
                 <p>From Compassion to Action</p>
-                <a href="#" class="btn btn-primary btn-lg">Sign in</a>
+              <div>  <a href="#" class="btn btn-primary btn-lg">Sign in</a>
+                {% if user %}
+                  <a href='{{url}}'>logged in test</a>
+                    {% else %}
+                  <a href='{{url}}'>logged out test</a>
+                    {% endif %}
+              </div>
             </div>
         </div>
     </header>
