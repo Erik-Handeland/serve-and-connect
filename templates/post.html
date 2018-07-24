@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="post.css">
     <link rel="shortcut icon" type="image/x-icon" href="../templates/images/favicon.ico"/>
   </head>
   <body>
@@ -24,14 +25,25 @@
 </nav>
     <h1> Share Your Experience </h1>
     <ul>
-
+<fieldset>
+    <legend> Post </legend>
+    <div>
       <form method="post">
        Event Name: <input name=post_name />
        Location: <input name=post_location  />
         </br>
           Event Description: <input name=post_event />
       </br>
+    </div>
+
+    <div>
+      <label for="avatar"> Picture </label>
+      <input type="file" id="avatar" name="avatar"
+          accept="image/png, image/jpeg" />
+    </div>
+
         <button>Post</button>
+  </fieldset>
 
     </ul>
   </body>
