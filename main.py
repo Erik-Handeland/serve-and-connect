@@ -45,7 +45,7 @@ class HomePage(webapp2.RequestHandler):
 
         user = find_or_create_user()
         log_url = get_log_inout_url(user)
-        
+
 
         variables = {"user": user,
                     "log_url": log_url}
@@ -108,9 +108,10 @@ class ProfilePage(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
     ('/home', HomePage),
+    ('/', HomePage),
+    ('/login', HomePage),
     ('/community', CommunityPage),
     ('/friends', FriendsPage),
     ('/profile', ProfilePage),
-    ('/', HomePage),
     ('/post', PostPage),
 ], debug=True)
