@@ -6,6 +6,7 @@ import urllib
 import urllib2
 from google.appengine.ext import ndb
 from google.appengine.api import users
+from models import UserPost
 
 jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(
@@ -57,13 +58,18 @@ class HomePage(webapp2.RequestHandler):
 
 class PostPage(webapp2.RequestHandler):
     def get(self):
-        post_event = self.request.get("post_event")
-        post_location = self.request.get("post_location")
-        post_time = self.request.get("post_time")
-
         post_template = jinja_env.get_template('post.html')
         self.response.write(post_template.render())
+    def post(self):
+        post_event = self.request.get("post_event")
+        post_location = self.request.get("post_location")
+        picture_id = self.request.get("picture_id")
 
+        JUserPost = UserPost(post_event = post_event,
+                            post_location = post_location,
+                            picture_id = picture_id)
+        JUserPost.put()
+        self.redirect('/community')
 
 # ----------------------------------------------------------------------------------
 # classes for each webpage
