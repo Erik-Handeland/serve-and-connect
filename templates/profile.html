@@ -2,6 +2,88 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Serve + Connect Profile</title>
+    <link rel="stylesheet" href="../css/profile.css"/>
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  </head>
+
+
+  <body>
+    <!-- Navigation -->
+    <nav id="siteNav" class="navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Logo -->
+                <a class="navbar-brand" href="home">
+                	SERVE + CONNECT
+                </a>
+
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="community">Community</a>
+                    </li>
+                    <li>
+                        <a href="friends">Friends</a>
+                    </li>
+                    <li class="active">
+                        <a href="profile"><b>Profile</b></a>
+                    </li>
+                </ul>
+
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container -->
+      </nav>
+
+      <header class= "community_bg">
+          <div class="header-content">
+              <div class="header-content-inner">
+                  <h1>Hello {{user.nickname}}</h1>
+                  <!--<p>Name: {{user.nickname}}</p>-->
+                  <p>Email: {{user.email}}</p>
+              </div>
+          </div>
+      </header>
+
+    <footer class="page-footer">
+        <div class="small-print">
+          <div class="container">
+            <p>Team Git Coding:</br>
+              Erik, Jordan, Lina</p>
+          </div>
+        </div>
+
+    </footer>
+
+    <!-- jQuery -->
+    <script src="../js/jquery-1.11.3.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+
+
+    <!-- Custom Javascript -->
+    <script src="../js/custom.js"></script>
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
+<!--
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
     <title> Serve and Connect</title>
     <link href="https://fonts.googleapis.com/css?family=Farsan" rel="stylesheet"/>
     <link rel="stylesheet" href="css/profile.css"/>
@@ -24,16 +106,8 @@
               <div class="inner">
                 <p>Name: {{user.nickname}}</p>
                 <p>Email: {{user.email}}</p>
-                {% if user.bio %}
-                  <p>{{user.bio}}</p>
-                {% else %}
-                  <form method="POST">
-                    <input name = "bio" placeholder = "Bio" type = "text"></br>
-                    <button>Submit</button>
-                  </form>
-                {% endif %}
               </div>
             </section>
 
   </body>
-</html>
+</html> -->
