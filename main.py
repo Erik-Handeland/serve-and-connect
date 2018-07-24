@@ -100,7 +100,7 @@ class ProfilePage(webapp2.RequestHandler):
 
 
 app = webapp2.WSGIApplication([
-    ('/home', CommunityPage),
+    ('/home', HomePage),
     ('/community', CommunityPage),
     ('/friends', FriendsPage),
     ('/profile', ProfilePage),
