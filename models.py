@@ -1,9 +1,7 @@
 from google.appengine.ext import ndb
 
-class UserInfo(ndb.Model):
-    first_name = ndb.StringProperty()
-    last_name = ndb.StringProperty()
-    nickname = ndb.StringProperty(required=True)
-    user_type = ndb.StringProperty()
-    sub = ndb.StringProperty()
-    availability = ndb.StringProperty()
+class UserPost(ndb.Model):
+    post_event = ndb.StringProperty(required = True)
+    post_location = ndb.StringProperty(required = True)
+    picture_id = ndb.StringProperty(required = False)
+    created_at = ndb.DateTimeProperty(auto_now_add=True)
