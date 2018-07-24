@@ -52,6 +52,9 @@ class HomePage(webapp2.RequestHandler):
         home_template = jinja_env.get_template('home.html')
         self.response.write(home_template.render(variables))
 
+# ----------------------------------------------------------------------------------
+# create post and profile page
+
 class ProfilePage(webapp2.RequestHandler):
 
     def get(self):
@@ -71,9 +74,6 @@ class ProfilePage(webapp2.RequestHandler):
         template = jinja_env.get_template("profile.html")
         self.response.write(template.render(variables))
 
-    # def get(self):
-    #     profile_template = jinja_env.get_template('profile.html')
-    #     self.response.write(profile_template.render())
 
 # ----------------------------------------------------------------------------------
 # classes for each webpage
