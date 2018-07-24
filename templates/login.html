@@ -3,9 +3,6 @@
 <head>
 <title>Serve + Connect</title>
 <meta charset="UTF-8">
-<meta name="google-signin-scope" content="profile email">
-<meta name="google-signin-client_id" content="1046708274555-ach4a5gsk2oqc9uu7m2vrreljju42g3i.apps.googleusercontent.com">
-<script src="https://apis.google.com/js/platform.js" async defer></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
@@ -14,24 +11,6 @@
 
 <body>
 
-<!--sign in button -->
-<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-<script>
-  function onSignIn(googleUser) {
-    // Useful data for your client-side scripts:
-    var profile = googleUser.getBasicProfile();
-    console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-    console.log('Full Name: ' + profile.getName());
-    console.log('Given Name: ' + profile.getGivenName());
-    console.log('Family Name: ' + profile.getFamilyName());
-    console.log("Image URL: " + profile.getImageUrl());
-    console.log("Email: " + profile.getEmail());
-
-    // The ID token you need to pass to your backend:
-    var id_token = googleUser.getAuthResponse().id_token;
-    console.log("ID Token: " + id_token);
-  };
-</script>
 
 <!-- Navbar -->
 <div class="w3-top">
