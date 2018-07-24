@@ -50,14 +50,25 @@
 
       <section class="content">
         <ul>
-
-          <form method="post">
+    <fieldset>
+      <legend> Post </legend>
+        <div>
+          <form method="post" >
            Event Name: <input name=post_name />
            Location: <input name=post_location  />
             </br>
               Event Description: <input name=post_event />
           </br>
-            <button>Post</button>
+          <div>
+            <label for="avatar"> Picture </label>
+            <input type="file" id="avatar" name="avatar"
+                accept="image/png, image/jpeg" />
+          </div>
+
+              <button>Post</button>
+        </fieldset>
+
+
 
         </ul>
       </section>
@@ -108,30 +119,11 @@
             </li>
         </ul>
 
-    </div><!-- /.navbar-collapse -->
-</div><!-- /.container -->
+    </div><! /.navbar-collapse -->
+<!--</div><! /.container
 </nav>
-    <h1> Share Your Experience </h1>
-    <ul>
-<fieldset>
-    <legend> Post </legend>
-    <div>
-      <form method="post">
-       Event Name: <input name=post_name />
-       Location: <input name=post_location  />
-        </br>
-          Event Description: <input name=post_event />
-      </br>
-    </div>
 
-    <div>
-      <label for="avatar"> Picture </label>
-      <input type="file" id="avatar" name="avatar"
-          accept="image/png, image/jpeg" />
-    </div>
 
-        <button>Post</button>
-  </fieldset>
 
     </ul>
   </body>
