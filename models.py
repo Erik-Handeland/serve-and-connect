@@ -1,23 +1,9 @@
-import jinja2
-import webapp2
-import os
-import json
-import urllib
-import urllib2
-import datetime
-import os
+from google.appengine.ext import ndb
 
-class User():
-    username = "John Snow"
-    email = "johns@gmail.com"
-    password = "IKnowNothing"
-
-    def friends(self):
-
-class Friendship():
-
-
-class Post():
-    content = TextField()
-
-    
+class UserInfo(ndb.Model):
+    first_name = ndb.StringProperty()
+    last_name = ndb.StringProperty()
+    nickname = ndb.StringProperty(required=True)
+    user_type = ndb.StringProperty()
+    sub = ndb.StringProperty()
+    availability = ndb.StringProperty()
