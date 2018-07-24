@@ -28,7 +28,7 @@ header {
     min-height: auto;
     text-align: center;
     color: #fff;
-    background-image: url('../images/helping-hands.jpg');
+    background-image: url('../templates/images/helping-hands.jpg');
     background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -139,15 +139,15 @@ header .header-content .header-content-inner p {
 }
 
 .item-1 {
-	background: url('../images/writing.jpg');
+	background: url('../templates/images/writing.jpg');
 	}
 
 .item-2 {
-	background: url('../images/concert.jpg');
+	background: url('../templates/images/concert.jpg');
 	}
 
 .item-3 {
-	background: url('../images/pencil_sharpener.jpg');
+	background: url('../templates/images/concert.jpg');
 	}
 
 .item-1,
