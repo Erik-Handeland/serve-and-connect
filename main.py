@@ -4,6 +4,7 @@ import os
 import json
 import urllib
 import urllib2
+import base64
 from google.appengine.ext import ndb
 from google.appengine.api import users
 from models import UserPost
@@ -80,6 +81,7 @@ class PostPage(webapp2.RequestHandler):
 class ProfilePage(webapp2.RequestHandler):
 
     def get(self):
+        juser = find_or_create_user()
         post_date = UserPost.query().order(UserPost.created_at).fetch(limit=10)
         user = find_or_create_user()
         variables = {"user": user,
@@ -87,13 +89,22 @@ class ProfilePage(webapp2.RequestHandler):
         template = jinja_env.get_template("profile.html")
         self.response.write(template.render(variables))
 
+        if juser.profile_pic:
+            jinja_values['profilepic'] = base64.b64encode(juser.profile_pic)
+
     def post(self):
+        juser = find_or_create_user()
         post_date = UserPost.query().order(UserPost.created_at).fetch(limit=10)
 
         variables = {"user": user,
                     "post_date": post_date}
         template = jinja_env.get_template("profile.html")
         self.response.write(template.render(variables))
+        if juser:
+            profilepic = self.request.get("profilepic")
+            juser.profile_pic = profilepic
+            juser.put()
+
 
 # ----------------------------------------------------------------------------------
 # classes for each webpage

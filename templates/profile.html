@@ -46,11 +46,19 @@
             <div class="row">
               <div class="column left">
                 <label for="avatar"> Profile Picture </label>
-                <img src="data:image/jpg;base64,{{profilepic}}" width="300px" height="300px">
+                <img src="{{profilepic}}" width="300px" height="300px">
 
                 <div>
-                  <i class="material-icons md-56">add_a_photo <input type="file" id="avatar" name="profilepic"
-                      accept="image/png, image/jpeg" /></i>
+                  <label for="avatar"> <i class="material-icons md-56">add_a_photo</i></label>
+                  <input type="file" id="avatar" name="profilepic"
+                      accept="image/png, image/jpeg" />
+              
+                    <!--  <i class="material-icons md-56">add_a_photo</i> -->
+
+
+
+                <!--   <input type="file" id="avatar" name="profilepic"
+                      accept="image/png, image/jpeg" /></i> -->
                 </div>
               </div>
               <div class="column right">
@@ -75,11 +83,11 @@
 
 
       <fieldset>
-
+        <img src="{{profilepic}}">
       <section>
           {{post_date}}
       </section>
-
+    </fieldset>
 
     <footer class="page-footer">
         <div class="small-print">
