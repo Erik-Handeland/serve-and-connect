@@ -84,22 +84,17 @@
       </section>
 
 
-      <fieldset>
-        <img src="{{profilepic}}">
+
 <section>
   {% for each_post in post_list %}
   <p>
-  Event Name: {{each_post.post_name}}
-  </br>
-  Location: {{each_post.post_location}}
-  </br>
-  {{each_post.image}}
-  </br>
-  Description: {{each_post.post_event}}
+  <b>Event Name: </b> {{each_post.post_name}} </br>
+  <b>Location: </b> {{each_post.post_location}} </br>
+  {{each_post.image}} </br>
+  <b>Description: </b> {{each_post.post_event}}
   </p>
   {% endfor %}
 </section>
-    </fieldset>
 
     <footer class="page-footer">
         <div class="small-print">

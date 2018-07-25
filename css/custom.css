@@ -5,17 +5,6 @@ body {
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
 }
 
-a {
-    color: yellowgreen;
-    -webkit-transition: all .35s;
-    -moz-transition: all .35s;
-    transition: all .35s;
-}
-
-a:hover,
-a:focus {
-    color: #525564;
-}
 
 p {
     font-size: 16px;
@@ -51,7 +40,7 @@ header .header-content .header-content-inner p {
     margin-bottom: 50px;
     font-size: 16px;
     font-weight: 300;
-    color: rgba(255,255,255,.7);
+    color: #fff;
 }
 
 @media(min-width:768px) {
@@ -131,7 +120,7 @@ header .header-content .header-content-inner p {
 .page-footer .contact {
 	padding: 100px 0;
 	background-color: #525564;
-	color: #fff;
+	color: #BEB9B5;
 	}
 
 .page-footer .contact p {
@@ -174,9 +163,9 @@ img::-moz-selection {
 }
 
 .text-primary {
-    color: yellowgreen;
+    color: #FEF6EB;
 }
 
 .bg-primary {
-    background-color: yellowgreen;
+    background-color:#74828F;
 }
