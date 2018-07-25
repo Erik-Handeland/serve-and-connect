@@ -23,6 +23,27 @@
     clear: both;
 }
 
+.smallcolumn {
+    float: left;
+    padding: 30px;
+    height: 300px;
+}
+/* Clear floats after the columns */
+.left1 {
+  width: 30%;
+}
+
+.right1 {
+  width: 30%;
+}
+
+/* Clear floats after the columns */
+.row1:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
 textarea{
   background-color:#d0dffc;
   border-radius: 10px;

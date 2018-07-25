@@ -88,7 +88,6 @@ class PostPage(webapp2.RequestHandler):
 class ProfilePage(webapp2.RequestHandler):
 
     def get(self):
-
         juser = find_or_create_user()
         post_list = UserPost.query().order(UserPost.created_at).fetch(limit=10)
         user = find_or_create_user()
@@ -100,7 +99,7 @@ class ProfilePage(webapp2.RequestHandler):
         # name = post_list.query().fetch()
         for post in post_list:
             post.image = base64.b64encode(post.image)
-        print(post_list)
+
         variables = {"user": person,
                     "post_list": post_list
                     }
@@ -119,14 +118,12 @@ class ProfilePage(webapp2.RequestHandler):
             juser.put()
         self.redirect('/profile')
 
-        image = self.request.get("image")
-        if image:
-            print("hello worlds")
-            userpost = UserPost()
-            userpost.image = image
-            userpost.user_id = juser.email
-            userpost.put()
-        self.redirect('/profile')
+        # image = self.request.get("image")
+        # if image:
+        #     userpost = UserPost()
+        #     userpost.image = image
+        #     userpost.put()
+        # self.redirect('/profile')
 
 # ----------------------------------------------------------------------------------
 # classes for each webpage
