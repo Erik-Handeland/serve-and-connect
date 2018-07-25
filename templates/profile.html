@@ -46,13 +46,15 @@
             <div class="row">
               <div class="column left">
                 <label for="avatar"> Profile Picture </label>
-                <img src="{{profilepic}}" width="300px" height="300px">
+                <img src="data:image/jpg;base64,{{profilepic}}" width="300px" height="300px">
 
                 <div>
+                   <form method="post" enctype="multipart/form-data">
                   <label for="avatar"> <i class="material-icons md-56">add_a_photo</i></label>
                   <input type="file" id="avatar" name="profilepic"
                       accept="image/png, image/jpeg" />
-              
+                      <button>Submit</button>
+                    </form>
                     <!--  <i class="material-icons md-56">add_a_photo</i> -->
 
 

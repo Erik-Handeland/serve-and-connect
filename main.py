@@ -87,7 +87,7 @@ class ProfilePage(webapp2.RequestHandler):
         juser = find_or_create_user()
         post_date = UserPost.query().order(UserPost.created_at).fetch(limit=10)
         user = find_or_create_user()
-        variables = {"user": user,
+        variables = {"user": user,}
 
         person = find_or_create_user()
         email = person.email
@@ -96,24 +96,19 @@ class ProfilePage(webapp2.RequestHandler):
 
                     "post_date": post_date}
         template = jinja_env.get_template("profile.html")
-        self.response.write(template.render(variables))
+
 
         if juser.profile_pic:
-            jinja_values['profilepic'] = base64.b64encode(juser.profile_pic)
+            variables['profilepic'] = base64.b64encode(juser.profile_pic)
 
+        self.response.write(template.render(variables))
     def post(self):
         juser = find_or_create_user()
-        post_date = UserPost.query().order(UserPost.created_at).fetch(limit=10)
-
-        variables = {"user": user,
-                    "post_date": post_date}
-        template = jinja_env.get_template("profile.html")
-        self.response.write(template.render(variables))
         if juser:
             profilepic = self.request.get("profilepic")
             juser.profile_pic = profilepic
             juser.put()
-
+        self.redirect('/profile')
 
 # ----------------------------------------------------------------------------------
 # classes for each webpage
