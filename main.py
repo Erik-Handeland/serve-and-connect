@@ -7,6 +7,7 @@ import urllib2
 from google.appengine.ext import ndb
 from google.appengine.api import users
 from models import UserPost
+from models import JUser
 
 jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(
@@ -34,11 +35,6 @@ def get_log_inout_url(user):
          return users.create_logout_url('/')
      else:
          return users.create_login_url('/')
-
-class JUser(ndb.Model):
-    nickname =  ndb.StringProperty(required=True)
-    email = ndb.StringProperty(required=True)
-    bio = ndb.StringProperty(required=False)
 
 class HomePage(webapp2.RequestHandler):
     def get(self):
@@ -79,19 +75,6 @@ class PostPage(webapp2.RequestHandler):
         JUserPost.put()
         self.redirect('/profile')
 
-# ----------------------------------------------------------------------------------
-# classes for each webpage
-
-class CommunityPage(webapp2.RequestHandler):
-    def get(self):
-        community_template = jinja_env.get_template('community.html')
-        self.response.write(community_template.render())
-
-class FriendsPage(webapp2.RequestHandler):
-    def get(self):
-        friends_template = jinja_env.get_template('friends.html')
-        self.response.write(friends_template.render())
-
 class ProfilePage(webapp2.RequestHandler):
 
     def get(self):
@@ -110,6 +93,18 @@ class ProfilePage(webapp2.RequestHandler):
         template = jinja_env.get_template("profile.html")
         self.response.write(template.render(variables))
 
+# ----------------------------------------------------------------------------------
+# classes for each webpage
+
+class CommunityPage(webapp2.RequestHandler):
+    def get(self):
+        community_template = jinja_env.get_template('community.html')
+        self.response.write(community_template.render())
+
+class FriendsPage(webapp2.RequestHandler):
+    def get(self):
+        friends_template = jinja_env.get_template('friends.html')
+        self.response.write(friends_template.render())
 
 
 app = webapp2.WSGIApplication([
