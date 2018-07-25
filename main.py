@@ -4,6 +4,7 @@ import os
 import json
 import urllib
 import urllib2
+import base64
 from google.appengine.ext import ndb
 from google.appengine.api import users
 from models import UserPost
@@ -39,6 +40,7 @@ class JUser(ndb.Model):
     nickname =  ndb.StringProperty(required=True)
     email = ndb.StringProperty(required=True)
     bio = ndb.StringProperty(required=False)
+    image = ndb.BlobProperty()
 
 class HomePage(webapp2.RequestHandler):
     def get(self):
@@ -71,13 +73,14 @@ class PostPage(webapp2.RequestHandler):
         post_name = self.request.get("post_name")
         post_location = self.request.get("post_location")
         post_event = self.request.get("post_event")
-
-        JUserPost = UserPost(
-                            post_name = post_name,
-                            post_location = post_location,
-                            post_event = post_event)
-        JUserPost.put()
-        self.redirect('/profile')
+        image = self.request.get("avatar")
+        self.response.write(image)
+    #    JUserPost = UserPost(
+    #                        post_name = post_name,
+    #                        post_location = post_location,
+    #                        post_event = post_event)
+    #    JUserPost.put()
+        #self.redirect('/profile')
 
 # ----------------------------------------------------------------------------------
 # classes for each webpage
@@ -101,7 +104,7 @@ class ProfilePage(webapp2.RequestHandler):
                     "post_date": post_date}
         template = jinja_env.get_template("profile.html")
         self.response.write(template.render(variables))
-
+        
     def post(self):
         post_date = UserPost.query().order(UserPost.created_at).fetch(limit=10)
 
@@ -109,6 +112,7 @@ class ProfilePage(webapp2.RequestHandler):
                     "post_date": post_date}
         template = jinja_env.get_template("profile.html")
         self.response.write(template.render(variables))
+
 
 
 
