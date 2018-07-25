@@ -7,6 +7,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="../templates/images/favicon.ico"/>
     <link rel="stylesheet" href="../css/profile.css"/>
     <!-- Bootstrap Core CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -42,13 +43,29 @@
 
       <header class= "community_bg">
           <div class="header-content">
-              <div class="header-content-inner">
-                  <h1>Hello {{user.nickname}}</h1>
-                  <h3>Name: {{user.nickname}}</h3>
-                  <h3>Email: {{user.email}}</h3>
+            <div class="row">
+              <div class="column left">
+                <label for="avatar"> Profile Picture </label>
+                <img src="data:image/jpg;base64,{{profilepic}}" width="300px" height="300px">
+
+                <div>
+                  <i class="material-icons md-56">add_a_photo <input type="file" id="avatar" name="profilepic"
+                      accept="image/png, image/jpeg" /></i>
+                </div>
+              </div>
+              <div class="column right">
+                <div class="header-content-inner">
+                    <h1>Hello {{user.nickname}}</h1>
+                    <h3>Name: {{user.nickname}}</h3>
+                    <h3>Email: {{user.email}}</h3>
+                </div>
+              </div>
               </div>
           </div>
       </header>
+
+
+
 
       <section class="content">
           <div class="container">
@@ -56,15 +73,14 @@
           </div>
       </section>
 
-<<<<<<< HEAD
-=======
 
+      <fieldset>
 
->>>>>>> f862ccdd961dc93a5e20184892c2ec2e0bfc2eaa
       <section>
           {{post_date}}
       </section>
-      
+
+
     <footer class="page-footer">
         <div class="small-print">
           <div class="container">

@@ -1,3 +1,28 @@
+
+
+
+
+.column {
+    float: left;
+    padding: 10px;
+    height: 300px;
+}
+/* Clear floats after the columns */
+.left {
+  width: 25%;
+}
+
+.right {
+  width: 75%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
 textarea{
   background-color:#d0dffc;
   border-radius: 10px;
