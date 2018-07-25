@@ -13,4 +13,4 @@ class UserPost(ndb.Model):
     post_event = ndb.StringProperty(required = True)
     created_at = ndb.DateTimeProperty(auto_now_add=True)
     image = ndb.BlobProperty()
-    user = ndb.KeyProperty(kind=JUser)
+    post_user = ndb.KeyProperty(kind=JUser)

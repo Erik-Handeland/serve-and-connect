@@ -64,11 +64,13 @@ class PostPage(webapp2.RequestHandler):
         post_template = jinja_env.get_template('post.html')
         self.response.write(post_template.render())
     def post(self):
+        user = users.get_current_user()
+        post_user = ndb.Key('JUser', user.nickname())
         post_name = self.request.get("post_name")
         post_location = self.request.get("post_location")
         post_event = self.request.get("post_event")
 
-        JUserPost = UserPost(
+        JUserPost = UserPost(post_user = post_user,
                             post_name = post_name,
                             post_location = post_location,
                             post_event = post_event)
