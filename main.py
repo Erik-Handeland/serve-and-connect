@@ -70,19 +70,22 @@ class PostPage(webapp2.RequestHandler):
         post_location = self.request.get("post_location")
         post_event = self.request.get("post_event")
 
+
         JUserPost = UserPost(post_user = post_user,
                             post_name = post_name,
                             post_location = post_location,
-                            post_event = post_event)
+                            post_event = post_event,
+                            post_user_id = user.email())
         JUserPost.put()
         self.redirect('/profile')
 
 class ProfilePage(webapp2.RequestHandler):
 
     def get(self):
-        post_date = UserPost.query().order(UserPost.created_at).fetch(limit=10)
-        user = find_or_create_user()
-        variables = {"user": user,
+        person = find_or_create_user()
+        email = person.email
+        post_date = UserPost.query().filter(UserPost.post_user_id== email).order(UserPost.created_at).fetch(limit=10)
+        variables = {"user": person,
                     "post_date": post_date}
         template = jinja_env.get_template("profile.html")
         self.response.write(template.render(variables))
