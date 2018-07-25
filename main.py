@@ -92,6 +92,7 @@ class ProfilePage(webapp2.RequestHandler):
         person = find_or_create_user()
         email = person.email
         post_list = UserPost.query().filter(UserPost.post_user_id== email).order(UserPost.created_at).fetch(limit=10)
+        # name = post_list.query().fetch()
         variables = {"user": person,
 
                     "post_list": post_list}
