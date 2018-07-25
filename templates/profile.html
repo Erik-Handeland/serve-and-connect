@@ -83,38 +83,19 @@
       </section>
 
 
-<<<<<<< HEAD
+
       <fieldset>
         <img src="data:image/jpg;base64,{{profilepic}}" width="50px" height="50px"> <b> {{user.nickname}} </b>
-<section>
-  {% for each_post in post_list %}
-  <p>
-  Event Name: {{each_post.post_name}}
-  </br>
-  Location: {{each_post.post_location}}
-  </br>
-  Description: {{each_post.post_event}}
-  </br>
-  Picture: <img src="data:image/jpg;base64,{{each_post.image}}" width="300px" height="300px">
-  </p>
-  {% endfor %}
-  </section>
-
-
+        {% for each_post in post_list %}
+        <p>
+        <b>Event Name: </b> {{each_post.post_name}} </br>
+        <b>Location: </b> {{each_post.post_location}} </br>
+        <img src="data:image/jpg;base64,{{each_post.image}}" width="300px" height="300px"> </br>
+        <b>Description: </b> {{each_post.post_event}}
+        </p>
+        {% endfor %}
+      </section>
     </fieldset>
-=======
-
-<section>
-  {% for each_post in post_list %}
-  <p>
-  <b>Event Name: </b> {{each_post.post_name}} </br>
-  <b>Location: </b> {{each_post.post_location}} </br>
-  {{each_post.image}} </br>
-  <b>Description: </b> {{each_post.post_event}}
-  </p>
-  {% endfor %}
-</section>
->>>>>>> d92d3be849b0a901b3c4686adf6f90dd7588484a
 
     <footer class="page-footer">
         <div class="small-print">
