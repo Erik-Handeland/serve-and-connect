@@ -76,7 +76,6 @@
 
 
 
-
       <section class="content">
           <div class="container">
             <a href="/post" class="btn btn-primary btn-lg">Post Your Experience!</a>
@@ -85,7 +84,7 @@
 
 
       <fieldset>
-        <img src="{{profilepic}}">
+        <img src="data:image/jpg;base64,{{profilepic}}" width="50px" height="50px"> <b> {{user.nickname}} </b>
 <section>
   {% for each_post in post_list %}
   <p>
@@ -94,9 +93,13 @@
   Location: {{each_post.post_location}}
   </br>
   Description: {{each_post.post_event}}
+  </br>
+  Picture: <img src="data:image/jpg;base64,{{each_post.image}}" width="300px" height="300px">
   </p>
   {% endfor %}
-</section>
+  </section>
+
+
     </fieldset>
 
     <footer class="page-footer">

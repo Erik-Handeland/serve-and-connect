@@ -10,6 +10,7 @@ from google.appengine.api import users
 from models import UserPost
 from models import JUser
 
+
 jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(
         os.path.dirname(__file__) + "/templates"))
@@ -36,6 +37,7 @@ def get_log_inout_url(user):
          return users.create_logout_url('/')
      else:
          return users.create_login_url('/')
+
 
 class HomePage(webapp2.RequestHandler):
     def get(self):
@@ -64,19 +66,22 @@ class PostPage(webapp2.RequestHandler):
     def get(self):
         post_template = jinja_env.get_template('post.html')
         self.response.write(post_template.render())
+
     def post(self):
         user = users.get_current_user()
         post_user = ndb.Key('JUser', user.email())
         post_name = self.request.get("post_name")
         post_location = self.request.get("post_location")
         post_event = self.request.get("post_event")
+        image = self.request.get("image")
 
 
         JUserPost = UserPost(post_user = post_user,
                             post_name = post_name,
                             post_location = post_location,
                             post_event = post_event,
-                            post_user_id = user.email())
+                            post_user_id = user.email(),
+                            image = image)
         JUserPost.put()
         self.redirect('/profile')
 
@@ -93,14 +98,17 @@ class ProfilePage(webapp2.RequestHandler):
         email = person.email
         post_list = UserPost.query().filter(UserPost.post_user_id== email).order(UserPost.created_at).fetch(limit=10)
         # name = post_list.query().fetch()
+        for post in post_list:
+            post.image = base64.b64encode(post.image)
+        print(post_list)
         variables = {"user": person,
-
-                    "post_list": post_list}
+                    "post_list": post_list
+                    }
         template = jinja_env.get_template("profile.html")
 
 
         if juser.profile_pic:
-            variables['profilepic'] = base64.b64encode(juser.profile_pic)
+            variables['profilepic'] =base64.b64encode(juser.profile_pic)
 
         self.response.write(template.render(variables))
     def post(self):
@@ -109,6 +117,15 @@ class ProfilePage(webapp2.RequestHandler):
             profilepic = self.request.get("profilepic")
             juser.profile_pic = profilepic
             juser.put()
+        self.redirect('/profile')
+
+        image = self.request.get("image")
+        if image:
+            print("hello worlds")
+            userpost = UserPost()
+            userpost.image = image
+            userpost.user_id = juser.email
+            userpost.put()
         self.redirect('/profile')
 
 # ----------------------------------------------------------------------------------
