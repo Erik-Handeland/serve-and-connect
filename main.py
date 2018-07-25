@@ -85,16 +85,16 @@ class ProfilePage(webapp2.RequestHandler):
     def get(self):
 
         juser = find_or_create_user()
-        post_date = UserPost.query().order(UserPost.created_at).fetch(limit=10)
+        post_list = UserPost.query().order(UserPost.created_at).fetch(limit=10)
         user = find_or_create_user()
         variables = {"user": user,}
 
         person = find_or_create_user()
         email = person.email
-        post_date = UserPost.query().filter(UserPost.post_user_id== email).order(UserPost.created_at).fetch(limit=10)
+        post_list = UserPost.query().filter(UserPost.post_user_id== email).order(UserPost.created_at).fetch(limit=10)
         variables = {"user": person,
 
-                    "post_date": post_date}
+                    "post_list": post_list}
         template = jinja_env.get_template("profile.html")
 
 
