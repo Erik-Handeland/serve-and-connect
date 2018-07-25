@@ -4,10 +4,10 @@ import os
 import json
 import urllib
 import urllib2
-import base64
 from google.appengine.ext import ndb
 from google.appengine.api import users
 from models import UserPost
+from models import JUser
 
 jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(
@@ -35,12 +35,6 @@ def get_log_inout_url(user):
          return users.create_logout_url('/')
      else:
          return users.create_login_url('/')
-
-class JUser(ndb.Model):
-    nickname =  ndb.StringProperty(required=True)
-    email = ndb.StringProperty(required=True)
-    bio = ndb.StringProperty(required=False)
-    image = ndb.BlobProperty()
 
 class HomePage(webapp2.RequestHandler):
     def get(self):
@@ -73,14 +67,31 @@ class PostPage(webapp2.RequestHandler):
         post_name = self.request.get("post_name")
         post_location = self.request.get("post_location")
         post_event = self.request.get("post_event")
-        image = self.request.get("avatar")
-        self.response.write(image)
-    #    JUserPost = UserPost(
-    #                        post_name = post_name,
-    #                        post_location = post_location,
-    #                        post_event = post_event)
-    #    JUserPost.put()
-        #self.redirect('/profile')
+
+        JUserPost = UserPost(
+                            post_name = post_name,
+                            post_location = post_location,
+                            post_event = post_event)
+        JUserPost.put()
+        self.redirect('/profile')
+
+class ProfilePage(webapp2.RequestHandler):
+
+    def get(self):
+        post_date = UserPost.query().order(UserPost.created_at).fetch(limit=10)
+        user = find_or_create_user()
+        variables = {"user": user,
+                    "post_date": post_date}
+        template = jinja_env.get_template("profile.html")
+        self.response.write(template.render(variables))
+
+    def post(self):
+        post_date = UserPost.query().order(UserPost.created_at).fetch(limit=10)
+
+        variables = {"user": user,
+                    "post_date": post_date}
+        template = jinja_env.get_template("profile.html")
+        self.response.write(template.render(variables))
 
 # ----------------------------------------------------------------------------------
 # classes for each webpage
@@ -94,26 +105,6 @@ class FriendsPage(webapp2.RequestHandler):
     def get(self):
         friends_template = jinja_env.get_template('friends.html')
         self.response.write(friends_template.render())
-
-class ProfilePage(webapp2.RequestHandler):
-
-    def get(self):
-        post_date = UserPost.query().order(UserPost.created_at).fetch(limit=10)
-        user = find_or_create_user()
-        variables = {"user": user,
-                    "post_date": post_date}
-        template = jinja_env.get_template("profile.html")
-        self.response.write(template.render(variables))
-        
-    def post(self):
-        post_date = UserPost.query().order(UserPost.created_at).fetch(limit=10)
-
-        variables = {"user": user,
-                    "post_date": post_date}
-        template = jinja_env.get_template("profile.html")
-        self.response.write(template.render(variables))
-
-
 
 
 app = webapp2.WSGIApplication([
