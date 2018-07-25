@@ -5,7 +5,7 @@ import main
 class JUser(ndb.Model):
     nickname =  ndb.StringProperty(required=True)
     email = ndb.StringProperty(required=True)
-    bio = ndb.StringProperty(required=False)
+    friends = ndb.StringProperty(required=False)
     profile_pic = ndb.BlobProperty()
 
 class UserPost(ndb.Model):
