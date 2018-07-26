@@ -48,10 +48,11 @@
 }
 
 textarea{
-  background-color:#d0dffc;
+  background-color:#faf3eb;
   border-radius: 10px;
   font-size: 18px;
-
+  height: 100px;
+  width: 50%;
 
 }
 #avatar{
@@ -59,11 +60,11 @@ textarea{
 }
 
 input{
+  width: 50%;
   padding-top: 15px;
-  padding-right: 50px;
-  background-color:#d0dffc;
+  padding-right: 10px;
+  background-color:#faf3eb;
   box-sizing: border-box;
-  border: 2px, solid, white;
   border-radius: 10px;
   font-size: 18px;
 }
