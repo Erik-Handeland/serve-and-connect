@@ -45,20 +45,22 @@
               <div class="header-content-inner">
                   <h1>Volunteer Opportunities</h1>
               </div>
+              <section class="content">
+                  <div class="container">
+                    <a href="/community-post" class="btn btn-primary btn-lg">Post An</br>Opportunity</a>
+                  </div>
+              </section>
+              <section>
+                <form method="GET" style="font-family: helvetica">
+              Search: <input type="text" name=q placeholder="{{search_term}}">
+              <button class="btn btn-primary btn-sm">Submit</button>
+              <a href="community" class="btn btn-primary btn-sm">Clear Search</a>
+              </section>
           </div>
       </header>
 
-      <section class="content">
-          <div class="container">
-            <a href="/community-post" class="btn btn-primary btn-lg">Post An</br>Opportunity</a>
-          </div>
-      </section>
-      <section>
-        <form method="GET" style="font-family: helvetica">
-      Search: <input type="text" name=q placeholder="{{search_term}}">
-      <button class="btn btn-primary btn-sm">Submit</button>
-      <a href="community" class="btn btn-primary btn-sm">Clear Search</a>
-      </section>
+
+
 
           {% for each_post in post_list %}
           <div class="row1">
