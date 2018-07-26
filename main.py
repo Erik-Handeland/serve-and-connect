@@ -203,7 +203,7 @@ class CommunityPage(webapp2.RequestHandler):
             self.response.write(community_template.render(variables))
 
 # ----------------------------------------------------------------------------------
-# classes for each webpage
+# classes for friends page
 
 
 class FriendsPage(webapp2.RequestHandler):
@@ -226,6 +226,15 @@ class FriendsPage(webapp2.RequestHandler):
         friends_template = jinja_env.get_template('friends.html')
         self.response.write(friends_template.render(variables))
 
+# ----------------------------------------------------------------------------------
+# classes for each webpage
+
+class AboutPage(webapp2.RequestHandler):
+    def get(self):
+        post_template = jinja_env.get_template('about.html')
+        self.response.write(post_template.render())
+
+
 
 app = webapp2.WSGIApplication([
     ('/home', HomePage),
@@ -236,5 +245,6 @@ app = webapp2.WSGIApplication([
     ('/profile', ProfilePage),
     ('/profile-post', ProfilePostPage),
     ('/community-post', CommunityPostPage),
+    ('/about', AboutPage),
 
 ], debug=True)
