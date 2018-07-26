@@ -13,7 +13,7 @@
   </head>
 
 
-  <body>
+  <body style="background:#565968">
     <!-- Navigation -->
     <nav id="siteNav" class="navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
@@ -51,7 +51,7 @@
                   </div>
               </section>
               <section>
-                <form method="GET" style="font-family: helvetica">
+                <form method="GET" style="font-family: helvetica; font-size: 20px">
               Location Search: <input type="text" name=q placeholder="{{search_term}}">
               <button class="btn btn-primary btn-sm">Submit</button>
               <a href="community" class="btn btn-primary btn-sm">Clear Search</a>
@@ -63,7 +63,7 @@
 
 
           {% for each_post in post_list %}
-          <div class="row1">
+          <div class="row1" style="color:#f9f3ec">
                 <div class="smallcolumn left1 ">
                     <img src="data:image/jpg;base64,{{each_post.image}}" width="400px" height="300px"> </br>
                 </div>
@@ -80,8 +80,8 @@
     <footer class="page-footer">
         <div class="small-print">
           <div class="container">
-            <p>Team Git Coding:</br>
-              <a href="https://www.handeland.tech">Erik Handeland,</a><a href="https://www.facebook.com/jordan.huyghue"> Jordan Huyghue,</a> <a href= "https://www.linkedin.com/in/lina-park-622857158/">Lina Park</a></p>
+            <p class="footer" style="color:#d0706a; font-size: 20px; font-weight: bold; ">Team Git Coding:</br> </p>
+              <a  style="color:#96C0CE" href="https://www.handeland.tech">Erik Handeland,</a><a style="color:#96C0CE" href="https://www.facebook.com/jordan.huyghue"> Jordan Huyghue,</a> <a style="color:#96C0CE" href= "https://www.linkedin.com/in/lina-park-622857158/">Lina Park</a></p>
           </div>
         </div>
 
