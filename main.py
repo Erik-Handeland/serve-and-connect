@@ -188,7 +188,7 @@ app = webapp2.WSGIApplication([
     ('/community', CommunityPage),
     ('/friends', FriendsPage),
     ('/profile', ProfilePage),
-    ('/profile/post', ProfilePostPage),
-    ('/community/post', CommunityPostPage),
+    ('/profile-post', ProfilePostPage),
+    ('/community-post', CommunityPostPage),
 
 ], debug=True)
