@@ -60,48 +60,18 @@
       <a href="community" class="btn btn-primary btn-sm">Clear Search</a>
       </section>
 
-      <script id="hocwrscrpt" src="http://wrs.handsonconnect.org/form.js" title="HOC0123-004" type="text/javascript"></script><div id="hocwir-form" class="search-opportunities" style="border:  1px none"><input type="hidden" id="hid-identifier" name="hid-identifier" readonly="true" value="HOC0123-004"><input type="hidden" id="hid-userid" name="hid-userid" readonly="true" value="HOC0123-004--d31e2d98-7549-5c0f-efad-5fd1bb189a8c"><input type="hidden" id="hid-virtualOpps" name="hid-virtualOpps" readonly="true" value="0"><input type="hidden" id="hid-output" name="hid-output" readonly="true" value="JSON"><input type="hidden" id="hid-requiredFields" name="hid-requiredFields" readonly="true" value="0:0:"><input type="hidden" id="hid-ShowSuggestions" name="hid-ShowSuggestions" readonly="true" value="False"><a id="show-results" href="http://"></a><div><div><h5>Find Volunteer Opportunities</h5><div>
-<label for="txt-keywords">Keyword(s):</label>
-<input id="txt-keywords" name="keywords" class="textbox suggestions" maxlength="250" value="" style="width:100%;">
-</div><div>
-<label for="txt-zip">ZIP Code:</label>
-<input id="txt-zip" name="txt-zip" maxlength="10" class="textbox" style="width:70px" value="">
-<span style="display:none">
-within <select id="drp-radius" name="drp-radius" class="textbox" style="width:108px;"><option value="10000">Any</option>
-<option value="1">1 miles</option>
-<option value="5">5 miles</option>
-<option value="10">10 miles</option>
-<option value="25">25 miles</option>
-<option value="50">50 miles</option><option value="100">100 miles</option>
-</select>
-</span>
-</div><div>
-
-</div></div></div><form id="form1" runat="server" action="http://uwcentralny.force.com/HOC__Volunteer_Opportunity_Search_Page?p=sw" method="POST">
-<input type="hidden" id="hid-results" name="hid-results" value="" runat="server">
-</form><input id="search-button" type="button" value="Search"/></div>
-
-
-
-
-
-
-
-
-      {% for each_post in post_list %}
-
-              <div class="row1">
-                <!--<div class ="bigcolumn left"> -->
-                    <div class="smallcolumn left1 ">
-                        <img src="data:image/jpg;base64,{{each_post.image}}" width="400px" height="300px"> </br>
-                    </div>
-                    <div class= "smallcolumn right1">
-                      <p>
-                        <b>Event Name: </b> {{each_post.post_name}} </br>
-                        <b>Location: </b> {{each_post.post_location}} </br>
-                        <b>Description: </b> {{each_post.post_event}}
-                      </p>
-                      {% endfor %}
+          {% for each_post in post_list %}
+          <div class="row1">
+                <div class="smallcolumn left1 ">
+                    <img src="data:image/jpg;base64,{{each_post.image}}" width="400px" height="300px"> </br>
+                </div>
+                <div class= "smallcolumn right1">
+                  <p>
+                    <b>Event Name: </b> {{each_post.post_name}} </br>
+                    <b>Location: </b> {{each_post.post_location}} </br>
+                    <b>Description: </b> {{each_post.post_event}}
+                  </p>
+                  {% endfor %}
               </div>
             </div>
     <footer class="page-footer">
