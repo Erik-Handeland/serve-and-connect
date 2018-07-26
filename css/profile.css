@@ -2,6 +2,9 @@
   display: none;
 }
 
+.m_title:first-letter {
+    text-transform: capitalize;
+}
 .column {
     float: left;
     padding: 10px;
