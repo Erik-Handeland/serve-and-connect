@@ -162,21 +162,41 @@ class CommunityPostPage(webapp2.RequestHandler):
 
 class CommunityPage(webapp2.RequestHandler):
     def get(self):
+        search_term = self.request.get("q")
+        search = search_term.lower()
         community_template = jinja_env.get_template('community.html')
-        juser = find_or_create_user()
-        post_list = CommunityPost.query().order(CommunityPost.created_at).fetch(limit=10)
-        user = find_or_create_user()
-        variables = {"user": user,}
 
-        person = find_or_create_user()
-        email = person.email
-        for post in post_list:
-            post.image = base64.b64encode(post.image)
+        if search:
+            juser = find_or_create_user()
+            post_list = CommunityPost.query().filter(CommunityPost.post_location== search).order(CommunityPost.created_at).fetch(limit=10)
+            user = find_or_create_user()
+            variables = {"user": user,}
+            person = find_or_create_user()
+            email = person.email
+            for post in post_list:
+                post.image = base64.b64encode(post.image)
 
-        variables = {"user": person,
-                    "post_list": post_list
-                    }
-        self.response.write(community_template.render(variables))
+            variables = {"user": person,
+                        "post_list": post_list,
+                        "search_term": search_term
+                        }
+            self.response.write(community_template.render(variables))
+
+        else:
+            juser = find_or_create_user()
+            post_list = CommunityPost.query().order(CommunityPost.created_at).fetch(limit=10)
+            user = find_or_create_user()
+            variables = {"user": user,}
+
+            person = find_or_create_user()
+            email = person.email
+            for post in post_list:
+                post.image = base64.b64encode(post.image)
+
+            variables = {"user": person,
+                        "post_list": post_list
+                        }
+            self.response.write(community_template.render(variables))
 
 # ----------------------------------------------------------------------------------
 # classes for each webpage
