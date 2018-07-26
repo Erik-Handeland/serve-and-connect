@@ -209,18 +209,8 @@ class CommunityPage(webapp2.RequestHandler):
 class FriendsPage(webapp2.RequestHandler):
     def get(self):
         user = JUser.query().fetch()
-        post_list = UserPost.query().order(UserPost.created_at).fetch(limit=20)
-        #friends_list = JUser.query().fetch()
+        post_list = UserPost.query().order(-UserPost.created_at).fetch(limit=20)
         name = find_or_create_user()
-        # nickname = self.request.get("nickname")
-        # email = self.request.get("email")
-        # profile_pic = self.request.get("profile_pic")
-        # friends = self.request.get("friends")
-        # friends = JUser(name = nickname,
-        #             email= email,
-        #             profile_pic= profile_pic,
-        #             friends= friends
-        # )
 
         user_lookup = {}
         for name in user:
@@ -232,7 +222,6 @@ class FriendsPage(webapp2.RequestHandler):
             post.post_user_image = base64.b64encode(id.profile_pic)
             post.image = base64.b64encode(post.image)
         variables = {"post_list": post_list,
-                    #"friends_list": friends_list
                     }
         friends_template = jinja_env.get_template('friends.html')
         self.response.write(friends_template.render(variables))
