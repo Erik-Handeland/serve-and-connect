@@ -322,8 +322,9 @@ img::-moz-selection {
 } */
 
 .entry {
-    float: left;
-    width: 33.33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Clear floats after the columns */
@@ -362,11 +363,21 @@ section {
 
 }
 
-.row {
+.grid {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
   margin-bottom: 50px;
+}
+
+.footer {
+  text-align: center
 }
 
 p {
   text-align: left;
   color: #777
+}
+
+.post_container {
+  width: 400px;
 }
