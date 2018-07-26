@@ -162,7 +162,6 @@ class CommunityPage(webapp2.RequestHandler):
 
         person = find_or_create_user()
         email = person.email
-        post_list = CommunityPost.query().filter(CommunityPost.post_user_id== email).order(CommunityPost.created_at).fetch(limit=10)
         for post in post_list:
             post.image = base64.b64encode(post.image)
 
