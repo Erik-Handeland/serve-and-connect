@@ -83,9 +83,11 @@ class ProfilePostPage(webapp2.RequestHandler):
         post_location = self.request.get("post_location")
         post_event = self.request.get("post_event")
         image = self.request.get("image")
+        post_date = self.request.get("post_date")
 
 
         JUserPost = UserPost(post_user = post_user,
+                            post_date = post_date,
                             post_name = post_name,
                             post_location = post_location,
                             post_event = post_event,
@@ -144,6 +146,7 @@ class CommunityPostPage(webapp2.RequestHandler):
 
     def post(self):
         user = users.get_current_user()
+        post_date = self.request.get("post_date")
         post_user = ndb.Key('JUser', user.email())
         post_name = self.request.get("post_name")
         post_location = self.request.get("post_location")
@@ -153,6 +156,7 @@ class CommunityPostPage(webapp2.RequestHandler):
 
         JUserPost = CommunityPost(post_user = post_user,
                             post_name = post_name,
+                            post_date = post_date,
                             post_location = post_location,
                             post_event = post_event,
                             post_user_id = user.email(),
