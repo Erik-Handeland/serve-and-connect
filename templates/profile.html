@@ -66,7 +66,7 @@
 
                     <!-- <h3>Email: {{user.email}}</h3> -->
                     <section class="content">
-                        <div class="container">
+                        <div>
                           <a href="/profile-post" class="btn btn-primary btn-lg">Post Your Experience!</a>
                         </div>
                     </section>
@@ -78,16 +78,50 @@
 
 
 
+      <section id = "user_posts">
+        <div class = "user_container">
+          <div class = "profile_post_header">
+            <h2>
+              Your Volunteer Posts
+            </h2>
+          </div>
+        </div>
+          <div class="rows aln-center">
+<!--            <div class = "three_columns">-->
+              <div class="row">
+              {% for each_post in post_list %}
+                {% if loop.index %  3 == 0 %}
+                {% endif %}
+                <div class="entry">
+                  <a class = "image_featured">
+                    <img src="data:image/jpg;base64,{{each_post.image}}" width="400px" height="300px">
+                  </a>
+                  <div class = "profile_post_header">
+                    <h3>Event Name: </b> {{each_post.post_name}}</h3>
+                  </div>
+                  <p>
+                    <b>Location: </b> {{each_post.post_location}}</br>
+                    <b>Description: </b> {{each_post.post_event}}
+                  </p>
+                </div>
+                {% if not loop.first and not loop.index % 3 %}
+              </div><div class="row">
+                {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          </section>
 
 
 
 
-      <fieldset>
+
+    <!--  <fieldset>
         {% for each_post in post_list %}
 
         <div class="row1">
           <!--<div class ="bigcolumn left"> -->
-              <div class="smallcolumn left1 ">
+          <!--    <div class="smallcolumn left1 ">
                   <img src="data:image/jpg;base64,{{each_post.image}}" width="400px" height="300px"> </br>
               </div>
               <div class= "smallcolumn right1">
@@ -111,11 +145,11 @@
                       <b>Description: </b> {{each_post.post_event}}
                     </p>
                 </div>
-            </div> -->
+            </div>
       </div>
     </br>
       {% endfor %}
-    </fieldset>
+    </fieldset>-->
 
     <footer class="page-footer">
         <div class="small-print">

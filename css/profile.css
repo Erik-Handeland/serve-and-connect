@@ -111,6 +111,15 @@ p {
     line-height: 1.5;
 }
 
+header .profile_post_header {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
 header {
     position: relative;
     width: 100%;
@@ -181,9 +190,7 @@ header .header-content .header-content-inner p {
 }
 
 
-.content {
-    padding: 100px 0;
-}
+
 
 .content-2 {
 	color: #fff;
@@ -285,4 +292,66 @@ img::-moz-selection {
 
 .profile_img {
   border-radius: 50%
+}
+
+#user_posts {
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    text-align: center;
+    padding: 6em 0;
+}
+
+.user_container {
+  margin: 0 auto;
+  max-width: 100%;
+  width: 70em;
+}
+
+.rows.aln-center {
+    justify-content: center;
+}
+
+/* .row > .col-4 {
+    width: 33.3333333333%;
+}
+
+.row > * {
+    padding: 50px 0 0 50px;
+    box-sizing: border-box;
+} */
+
+.entry {
+    float: left;
+    width: 33.33%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+#features {
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    text-align: center;
+    padding: 6em 0;
+}
+
+.three_columns {
+  display: grid;
+  grid-template-columns: 33% 33% 33%
+
 }
