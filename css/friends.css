@@ -1,3 +1,7 @@
+.profile_pic{
+  border-radius: 50%;
+}
+
 html,
 body {
     width: 100%;
