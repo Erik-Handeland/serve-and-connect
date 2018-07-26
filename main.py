@@ -204,9 +204,26 @@ class CommunityPage(webapp2.RequestHandler):
 
 class FriendsPage(webapp2.RequestHandler):
     def get(self):
+        user = JUser.query().fetch()
         post_list = UserPost.query().order(UserPost.created_at).fetch(limit=20)
         #friends_list = JUser.query().fetch()
+        name = find_or_create_user()
+        # nickname = self.request.get("nickname")
+        # email = self.request.get("email")
+        # profile_pic = self.request.get("profile_pic")
+        # friends = self.request.get("friends")
+        # friends = JUser(name = nickname,
+        #             email= email,
+        #             profile_pic= profile_pic,
+        #             friends= friends
+        # )
+
+        friends= { "name": name,
+                    "email": name.email,
+                    "friends": name.friends }
+
         for post in post_list:
+            
             post.image = base64.b64encode(post.image)
         variables = {"post_list": post_list,
                     #"friends_list": friends_list

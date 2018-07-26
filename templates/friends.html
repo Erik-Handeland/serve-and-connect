@@ -58,6 +58,7 @@
     {% endfor %}
   {% for each_post in post_list %}
     <!--<div class ="bigcolumn left"> -->
+      <img src="data:image/jpg;base64,{{each_post.profile_pic}}" width="50px" height="50px"> <b> {{each_post.nickname}} </b> </br>
         <div class="smallcolumn left1 ">
             <img src="data:image/jpg;base64,{{each_post.image}}" width="400px" height="300px"> </br>
         </div>
