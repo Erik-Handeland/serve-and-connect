@@ -219,6 +219,7 @@ class FriendsPage(webapp2.RequestHandler):
         for post in post_list:
             id = user_lookup.get(post.post_user_id)
             post.post_nickname = id.nickname
+        
             post.post_user_image = base64.b64encode(id.profile_pic)
             post.image = base64.b64encode(post.image)
         variables = {"post_list": post_list,
