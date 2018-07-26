@@ -279,3 +279,7 @@ img::-moz-selection {
 .bg-primary {
     background-color: yellowgreen;
 }
+
+.profile_img {
+  border-radius: 50%
+}
