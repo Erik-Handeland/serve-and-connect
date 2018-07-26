@@ -88,14 +88,15 @@
         </div>
           <div class="rows aln-center">
 <!--            <div class = "three_columns">-->
-              <div class="row">
+              <div class="grid">
               {% for each_post in post_list %}
                 {% if loop.index %  3 == 0 %}
                 {% endif %}
                 <div class="entry">
-                  <a class = "image_featured">
+                  <div class="post_container">
+                  <div class = "image_featured">
                     <img src="data:image/jpg;base64,{{each_post.image}}" width="400px" height="300px">
-                  </a>
+                  </div>
                   <div class = "profile_post_header">
                     <h3></b> {{each_post.post_name}}</h3>
                   </div>
@@ -106,9 +107,8 @@
                    {{each_post.post_event}}
                   </p>
                 </div>
-                {% if not loop.first and not loop.index % 3 %}
-              </div><div class="row">
-                {% endif %}
+                </div>
+
                 {% endfor %}
               </div>
             </div>
@@ -116,51 +116,12 @@
 
 
 
-<<<<<<< HEAD
-=======
 
-
-    <!--  <fieldset>
-        {% for each_post in post_list %}
-          <img src="data:image/jpg;base64,{{each_post.profile_pic}}" width="50px" height="50px"> <b> {{each_post.nickname}} </b> </br>
-        <div class="row1">
-          <!--<div class ="bigcolumn left"> -->
-          <!--    <div class="smallcolumn left1 ">
-                  <img src="data:image/jpg;base64,{{each_post.image}}" width="400px" height="300px"> </br>
-              </div>
-              <div class= "smallcolumn right1">
-                  <p>
-                    <b>Event Name: </b> {{each_post.post_name}} </br>
-                    <b>Location: </b> {{each_post.post_location}} </br>
-                    <b>Description: </b> {{each_post.post_event}}
-                  </p>
-              </div>
-          </div>
-        </div>
-
-        <!--    <div class ="bigcolumn right">
-                <div class="smallcolumn left2 ">
-                    <img src="data:image/jpg;base64,{{each_post.image}}" width="400px" height="300px"> </br>
-                </div>
-                <div class= "smallcolumn right2">
-                    <p>
-                      <b>Event Name: </b> {{each_post.post_name}} </br>
-                      <b>Location: </b> {{each_post.post_location}} </br>
-                      <b>Description: </b> {{each_post.post_event}}
-                    </p>
-                </div>
-            </div>
-      </div>
-    </br>
-      {% endfor %}
-    </fieldset>-->
-
->>>>>>> 1b7d430be6ddbaf9717eaa59593a73857690836f
     <footer class="page-footer">
         <div class="small-print">
           <div class="container">
-            <p>Team Git Coding:</br>
-              Erik, Jordan, Lina</p>
+            <p class="footer">Team Git Coding:</br>
+              Erik Handeland, Jordan Huyghue, Lina Park</p>
           </div>
         </div>
 
