@@ -185,9 +185,11 @@ class CommunityPage(webapp2.RequestHandler):
 class FriendsPage(webapp2.RequestHandler):
     def get(self):
         post_list = UserPost.query().order(UserPost.created_at).fetch(limit=20)
+        #friends_list = JUser.query().fetch()
         for post in post_list:
             post.image = base64.b64encode(post.image)
-        variables = {"post_list": post_list
+        variables = {"post_list": post_list,
+                    #"friends_list": friends_list
                     }
         friends_template = jinja_env.get_template('friends.html')
         self.response.write(friends_template.render(variables))

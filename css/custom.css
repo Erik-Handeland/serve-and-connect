@@ -43,6 +43,13 @@ header .header-content .header-content-inner p {
     color: #fff;
 }
 
+.title-font{
+  font-family: 'Anton';
+  text-shadow: 2px 2px 5px black;
+  color: #a8b9e0
+
+}
+
 @media(min-width:768px) {
     header {
         min-height: 100%;
