@@ -145,10 +145,11 @@ header {
     width: 100%;
     min-height: 50%;
     text-align: center;
-    color: black;
-    background-image: url('../templates/images/profile_header.jpg');
+    color: white;
+    background-image: url('../templates/images/about-us.jpg');
     background-position: center;
     background-size: 100%;
+    font-weight: bolder;
 }
 
 header .header-content {
