@@ -17,6 +17,12 @@ indexes:
 
 - kind: CommunityPost
   properties:
+  - name: post_location
+  - name: created_at
+    direction: desc
+
+- kind: CommunityPost
+  properties:
   - name: post_user_id
   - name: created_at
 
