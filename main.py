@@ -106,7 +106,7 @@ class ProfilePage(webapp2.RequestHandler):
 
         person = find_or_create_user()
         email = person.email
-        post_list = UserPost.query().filter(UserPost.post_user_id== email).order(UserPost.created_at).fetch(limit=10)
+        post_list = UserPost.query().filter(UserPost.post_user_id== email).order(-UserPost.created_at).fetch(limit=10)
         # name = post_list.query().fetch()
         for post in post_list:
             post.image = base64.b64encode(post.image)
@@ -172,7 +172,7 @@ class CommunityPage(webapp2.RequestHandler):
 
         if search:
             juser = find_or_create_user()
-            post_list = CommunityPost.query().filter(CommunityPost.post_location== search).order(CommunityPost.created_at).fetch(limit=10)
+            post_list = CommunityPost.query().filter(CommunityPost.post_location== search).order(-CommunityPost.created_at).fetch(limit=10)
             user = find_or_create_user()
             variables = {"user": user,}
             person = find_or_create_user()
@@ -188,7 +188,7 @@ class CommunityPage(webapp2.RequestHandler):
 
         else:
             juser = find_or_create_user()
-            post_list = CommunityPost.query().order(CommunityPost.created_at).fetch(limit=10)
+            post_list = CommunityPost.query().order(-CommunityPost.created_at).fetch(limit=10)
             user = find_or_create_user()
             variables = {"user": user,}
 

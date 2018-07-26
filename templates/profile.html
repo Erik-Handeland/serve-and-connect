@@ -82,7 +82,7 @@
         <div class = "user_container">
           <div class = "profile_post_header">
             <h2>
-              Your Volunteer Posts
+              Your Volunteer Posts</br>
             </h2>
           </div>
         </div>
@@ -97,11 +97,13 @@
                     <img src="data:image/jpg;base64,{{each_post.image}}" width="400px" height="300px">
                   </a>
                   <div class = "profile_post_header">
-                    <h3>Event Name: </b> {{each_post.post_name}}</h3>
+                    <h3></b> {{each_post.post_name}}</h3>
                   </div>
                   <p>
-                    <b>Location: </b> {{each_post.post_location}}</br>
-                    <b>Description: </b> {{each_post.post_event}}
+                    <b>Location: </b> {{each_post.post_location}}    <b>Date: </b> {{each_post.post_date}}
+                  </br>
+                  </br>
+                   {{each_post.post_event}}
                   </p>
                 </div>
                 {% if not loop.first and not loop.index % 3 %}
@@ -113,43 +115,6 @@
           </section>
 
 
-
-
-
-    <!--  <fieldset>
-        {% for each_post in post_list %}
-
-        <div class="row1">
-          <!--<div class ="bigcolumn left"> -->
-          <!--    <div class="smallcolumn left1 ">
-                  <img src="data:image/jpg;base64,{{each_post.image}}" width="400px" height="300px"> </br>
-              </div>
-              <div class= "smallcolumn right1">
-                  <p>
-                    <b>Event Name: </b> {{each_post.post_name}} </br>
-                    <b>Location: </b> {{each_post.post_location}} </br>
-                    <b>Description: </b> {{each_post.post_event}}
-                  </p>
-              </div>
-          </div>
-        </div>
-
-        <!--    <div class ="bigcolumn right">
-                <div class="smallcolumn left2 ">
-                    <img src="data:image/jpg;base64,{{each_post.image}}" width="400px" height="300px"> </br>
-                </div>
-                <div class= "smallcolumn right2">
-                    <p>
-                      <b>Event Name: </b> {{each_post.post_name}} </br>
-                      <b>Location: </b> {{each_post.post_location}} </br>
-                      <b>Description: </b> {{each_post.post_event}}
-                    </p>
-                </div>
-            </div>
-      </div>
-    </br>
-      {% endfor %}
-    </fieldset>-->
 
     <footer class="page-footer">
         <div class="small-print">

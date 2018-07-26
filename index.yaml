@@ -24,3 +24,9 @@ indexes:
   properties:
   - name: post_user_id
   - name: created_at
+    direction: desc
+
+- kind: UserPost
+  properties:
+  - name: post_user_id
+  - name: created_at
