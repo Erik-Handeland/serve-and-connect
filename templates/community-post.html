@@ -3,9 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> Serve + Connect Community</title>
-    <link rel="shortcut icon" type="image/x-icon" href="../templates/images/favicon.ico"/>
-    <link rel="stylesheet" href="../css/community.css"/>
+    <title>Post Your Experience</title>
+    <link rel="stylesheet" href="../css/profile.css"/>
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
 
@@ -25,14 +24,14 @@
             <!-- Navbar links -->
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active">
-                        <a><b>Community</b></a>
+                    <li>
+                        <a href="community">Community</a>
                     </li>
                     <li>
                         <a href="friends">Friends</a>
                     </li>
-                    <li>
-                        <a href="profile">Profile</a>
+                    <li class="active">
+                        <a href="profile"><b>Profile</b></a>
                     </li>
                 </ul>
 
@@ -43,17 +42,42 @@
       <header class= "community_bg">
           <div class="header-content">
               <div class="header-content-inner">
-                  <h1>Volunteer Opportunities</h1>
+                  <h1>Post Page</h1>
+                  <p>Share your volunteer experience below!</p>
               </div>
           </div>
       </header>
-      {% for each_post in post_list %}
-      <p>
-        <b>Event Name: </b> {{each_post.post_name}} </br>
-        <b>Location: </b> {{each_post.post_location}} </br>
-        <b>Description: </b> {{each_post.post_event}}
-      </p>
-      {% endfor %}
+
+      <section class="content">
+        <ul>
+    <fieldset>
+      <legend> Post </legend>
+        <div>
+          <form method="post" enctype="multipart/form-data">
+          <b> Event Name: </b> <input name=post_name />
+        <b>   Location: </b><input name=post_location  />
+            </br>
+              <b>Event Description: </b><textarea name=post_event width= "300px"
+                height= "44px"></textarea>
+          </br>
+
+          <div>
+            <label for="avatar"> Picture </label>
+            <input type="file" id="avatar" name="image"
+                accept="image/png, image/jpeg" />
+            <button>Post</button>
+          </form>
+          </div>
+
+
+
+        </fieldset>
+
+
+
+        </ul>
+      </section>
+
     <footer class="page-footer">
         <div class="small-print">
           <div class="container">

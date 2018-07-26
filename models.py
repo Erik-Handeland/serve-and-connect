@@ -16,3 +16,12 @@ class UserPost(ndb.Model):
     image = ndb.BlobProperty()
     post_user = ndb.KeyProperty(kind=JUser)
     post_user_id = ndb.StringProperty(required = True)
+
+class CommunityPost(ndb.Model):
+    post_name = ndb.StringProperty(required = True)
+    post_location = ndb.StringProperty(required = True)
+    post_event = ndb.StringProperty(required = True)
+    created_at = ndb.DateTimeProperty(auto_now_add=True)
+    image = ndb.BlobProperty()
+    post_user = ndb.KeyProperty(kind=JUser)
+    post_user_id = ndb.StringProperty(required = True)

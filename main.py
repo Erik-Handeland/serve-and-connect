@@ -8,6 +8,7 @@ import base64
 from google.appengine.ext import ndb
 from google.appengine.api import users
 from models import UserPost
+from models import CommunityPost
 from models import JUser
 
 
@@ -62,9 +63,9 @@ class HomePage(webapp2.RequestHandler):
 # ----------------------------------------------------------------------------------
 # create post and profile page
 
-class PostPage(webapp2.RequestHandler):
+class ProfilePostPage(webapp2.RequestHandler):
     def get(self):
-        post_template = jinja_env.get_template('post.html')
+        post_template = jinja_env.get_template('profile-post.html')
         self.response.write(post_template.render())
 
     def post(self):
@@ -126,12 +127,53 @@ class ProfilePage(webapp2.RequestHandler):
         # self.redirect('/profile')
 
 # ----------------------------------------------------------------------------------
-# classes for each webpage
+# classes for each webpage and post page
+
+class CommunityPostPage(webapp2.RequestHandler):
+    def get(self):
+        post_template = jinja_env.get_template('community-post.html')
+        self.response.write(post_template.render())
+
+    def post(self):
+        user = users.get_current_user()
+        post_user = ndb.Key('JUser', user.email())
+        post_name = self.request.get("post_name")
+        post_location = self.request.get("post_location")
+        post_event = self.request.get("post_event")
+        image = self.request.get("image")
+
+
+        JUserPost = CommunityPost(post_user = post_user,
+                            post_name = post_name,
+                            post_location = post_location,
+                            post_event = post_event,
+                            post_user_id = user.email(),
+                            image = image)
+        JUserPost.put()
+        self.redirect('/community')
 
 class CommunityPage(webapp2.RequestHandler):
     def get(self):
         community_template = jinja_env.get_template('community.html')
-        self.response.write(community_template.render())
+        juser = find_or_create_user()
+        post_list = CommunityPost.query().order(CommunityPost.created_at).fetch(limit=10)
+        user = find_or_create_user()
+        variables = {"user": user,}
+
+        person = find_or_create_user()
+        email = person.email
+        post_list = CommunityPost.query().filter(CommunityPost.post_user_id== email).order(CommunityPost.created_at).fetch(limit=10)
+        for post in post_list:
+            post.image = base64.b64encode(post.image)
+
+        variables = {"user": person,
+                    "post_list": post_list
+                    }
+        self.response.write(community_template.render(variables))
+
+# ----------------------------------------------------------------------------------
+# classes for each webpage
+
 
 class FriendsPage(webapp2.RequestHandler):
     def get(self):
@@ -146,5 +188,7 @@ app = webapp2.WSGIApplication([
     ('/community', CommunityPage),
     ('/friends', FriendsPage),
     ('/profile', ProfilePage),
-    ('/post', PostPage),
+    ('/profile/post', ProfilePostPage),
+    ('/community/post', CommunityPostPage),
+
 ], debug=True)
