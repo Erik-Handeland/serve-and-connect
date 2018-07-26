@@ -70,8 +70,9 @@
                 <div class= "smallcolumn right1">
                   <p>
                     <b>Event Name: </b> {{each_post.post_name}} </br>
-                    <b>Location: </b> {{each_post.post_location}} </br>
-                    <b>Description: </b> {{each_post.post_event}}
+
+                    <i><b>Location: </b> {{each_post.post_location}} </b> {{each_post.post_date}}</i></br></br>
+                    {{each_post.post_event}}
                   </p>
                   {% endfor %}
               </div>
