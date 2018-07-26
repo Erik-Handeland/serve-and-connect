@@ -51,7 +51,8 @@ textarea{
   background-color:#d0dffc;
   border-radius: 10px;
   font-size: 18px;
-
+  height: 100px;
+  width: 50%;
 
 }
 #avatar{
