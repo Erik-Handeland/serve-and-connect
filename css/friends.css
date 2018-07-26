@@ -199,3 +199,34 @@ img::-moz-selection {
 .bg-primary {
     background-color: yellowgreen;
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+
+}
+
+.friends_header {
+  max-width: 100%;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+.post_container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10%;
+  margin-bottom: 50px;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+.entry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post_image {
+  width: 100%;
+}

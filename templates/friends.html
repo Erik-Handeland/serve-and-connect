@@ -40,40 +40,38 @@
         </div><!-- /.container -->
       </nav>
 
-      <header class= "community_bg">
+      <div class="grid">
+        <img class="friends_header" src="../templates/images/freinds-background.jpg">
           <div class="header-content">
               <div class="header-content-inner">
                   <h1>Friends</h1>
               </div>
           </div>
-      </header>
 
+      <div class="post_container">
+            {% for all_post in friends_list %}
+              <img src="data:image/jpg;base64,{{all_post.profile_pic}}" width="50px" height="50px"> <b> {{all_post.nickname}} </b> </br>
+              {% endfor %}
+            {% for each_post in post_list %}
+                <div>
+                <img class = "profile_pic" src="data:image/jpg;base64,{{each_post.post_user_image}}" width="60px" height="60px"> <b> {{each_post.post_nickname}} </b> </br>
 
+                      <img class="post_image" src="data:image/jpg;base64,{{each_post.image}}" width="400px" height="300px"> </br>
 
-<fieldset>
-  <div class="row1">
-  </br>
-  {% for all_post in friends_list %}
-    <img src="data:image/jpg;base64,{{all_post.profile_pic}}" width="50px" height="50px"> <b> {{all_post.nickname}} </b> </br>
-    {% endfor %}
-  {% for each_post in post_list %}
-    <!--<div class ="bigcolumn left"> -->
-      <img class = "profile_pic" src="data:image/jpg;base64,{{each_post.post_user_image}}" width="60px" height="60px"> <b> {{each_post.post_nickname}} </b> </br>
-        <div class="smallcolumn left1 ">
-            <img src="data:image/jpg;base64,{{each_post.image}}" width="400px" height="300px"> </br>
-        </div>
-        <div class= "smallcolumn right1">
-            <p>
-              <b>Event Name: </b> {{each_post.post_name}} </br>
-              <b>Location: </b> {{each_post.post_location}} </br>
-              <b>Description: </b> {{each_post.post_event}}
-            </p>
-        </div>
-    </div>
-  {% endfor %}
-</br>
+                      <p>
+                        <b>Event Name: </b> {{each_post.post_name}} </br>
+                        <b>Location: </b> {{each_post.post_location}} </br>
+                        <b>Description: </b> {{each_post.post_event}}
+                      </p>
+              </div>
 
-</fieldset>
+            {% endfor %}
+          </br>
+
+          </fieldset>
+      </div>
+      </div>
+      </div>
 
 
     <footer class="page-footer">
