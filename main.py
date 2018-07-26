@@ -47,14 +47,22 @@ class HomePage(webapp2.RequestHandler):
         log_url = get_log_inout_url(user)
         if user:
             log_message='Sign Out'
-
+            community = "Community"
+            friends = "Friends"
+            profile= "Profile"
         else:
             log_message = "Sign In"
+            community = ""
+            friends = ""
+            profile = ""
 
 
         variables = {"user": user,
                     "log_url": log_url,
-                    "log_message": log_message}
+                    "log_message": log_message,
+                    "community": community,
+                    "friends":friends,
+                    "profile": profile}
 
 
         home_template = jinja_env.get_template('home.html')
