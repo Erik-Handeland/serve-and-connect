@@ -16,6 +16,8 @@ class UserPost(ndb.Model):
     image = ndb.BlobProperty()
     post_user = ndb.KeyProperty(kind=JUser)
     post_user_id = ndb.StringProperty(required = True)
+    post_user_image = ndb.BlobProperty()
+    post_nickname = ndb.StringProperty()
 
 class CommunityPost(ndb.Model):
     post_name = ndb.StringProperty(required = True)
