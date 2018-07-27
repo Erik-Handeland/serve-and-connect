@@ -11,13 +11,7 @@ input{
     height: 300px;
 }
 /* Clear floats after the columns */
-.left1 {
-  width: 30%;
-}
 
-.right1 {
-  width: 30%;
-}
 
 /* Clear floats after the columns */
 .row1:after {
@@ -228,4 +222,30 @@ img::-moz-selection {
 
 .bg-primary {
     background-color: yellowgreen;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+
+}
+
+.community_header {
+  max-width: 100%;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  align-items: center;
+}
+
+.post_container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10%;
+  margin-bottom: 50px;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+.post_image {
+  width: 100%;
 }

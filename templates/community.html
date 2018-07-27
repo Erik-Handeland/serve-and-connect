@@ -44,38 +44,27 @@
         </div><!-- /.container -->
       </nav>
 
-      <header class= "community_bg">
-          <div class="header-content">
-              <div class="header-content-inner">
-                  <h1>Volunteer Opportunities</h1>
-              </div>
-              <section class="content">
-                  <div class="container">
-                    <a href="/community-post" class="btn btn-primary btn-lg">Post Opportunities</a>
-                  </div>
-              </section>
-              <section>
+      <div class = "grid">
+          <img class="community_header" src="../templates/images/community_hands.jpg">
+              <div class="community_header">
+              </br><center><a href="/community-post" class="btn btn-primary btn-lg">Post Opportunities</a>
                 <form method="GET" style="font-family: helvetica; font-size: 20px">
-              Location Search: <input type="text" name=q placeholder="{{search_term}}">
+              </br>Location Search: <input type="text" name=q placeholder="{{search_term}}">
               <button class="btn btn-primary btn-sm">Submit</button>
-              <a href="community" class="btn btn-primary btn-sm">Clear Search</a>
-              </section>
-          </div>
-      </header>
+              <a href="community" class="btn btn-primary btn-sm">Clear Search</a></center>
+            </br>
+            </br>
+            </div>
 
 
 
-
+              <div class="post_container">
           {% for each_post in post_list %}
-          <div class="row1">
-                <div class="smallcolumn left1 ">
-                    <img src="data:image/jpg;base64,{{each_post.image}}" width="400px" height="300px"> </br>
-                </div>
-                <div class= "smallcolumn right1">
+                    <img class = "post_image" src="data:image/jpg;base64,{{each_post.image}}" width="400px" height="300px"> </br>
                   <p>
                     <b>Event Name: </b> {{each_post.post_name}} </br>
 
-                    <i><b>Location: </b> {{each_post.post_location}} </b> {{each_post.post_date}}</i></br></br>
+                    <i><b>Location: </b> {{each_post.post_location}} </b><b>Date:</b>{{each_post.post_date}}</i></br></br>
                     {{each_post.post_event}}
                   </p>
                   {% endfor %}
