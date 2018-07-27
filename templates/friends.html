@@ -45,12 +45,7 @@
 
       <div class="grid">
         <img class="friends_header" src="../templates/images/friends.jpg">
-          <div class="header-content">
-              <div class="header-content-inner">
-                  <h1>Friends</h1>
-              </div>
-          </div>
-
+          
       <div class="post_container">
             {% for all_post in friends_list %}
               <img src="data:image/jpg;base64,{{all_post.profile_pic}}" width="50px" height="50px"> <b> {{all_post.nickname}} </b> </br>
