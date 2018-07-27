@@ -15,6 +15,7 @@ from models import JUser
 jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(
         os.path.dirname(__file__) + "/templates"))
+search_term = None
 
 # ----------------------------------------------------------------------------------
 # creates and adds users to database
@@ -132,13 +133,6 @@ class ProfilePage(webapp2.RequestHandler):
             juser.put()
         self.redirect('/profile')
 
-        # image = self.request.get("image")
-        # if image:
-        #     userpost = UserPost()
-        #     userpost.image = image
-        #     userpost.put()
-        # self.redirect('/profile')
-
 # ----------------------------------------------------------------------------------
 # classes for each webpage and post page
 
@@ -169,6 +163,7 @@ class CommunityPostPage(webapp2.RequestHandler):
 
 class CommunityPage(webapp2.RequestHandler):
     def get(self):
+        global search_term
         search_term = self.request.get("q")
         search = search_term.lower()
         community_template = jinja_env.get_template('community.html')
