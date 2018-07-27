@@ -13,7 +13,8 @@
   </head>
 
 
-  <body style="background:#565968">
+  <body>
+
     <!-- Navigation -->
     <nav id="siteNav" class="navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
@@ -33,6 +34,9 @@
                     </li>
                     <li>
                         <a href="profile">Profile</a>
+                    </li>
+                    <li>
+                        <a href="about">About</a>
                     </li>
                 </ul>
 
@@ -63,7 +67,7 @@
 
 
           {% for each_post in post_list %}
-          <div class="row1" style="color:#f9f3ec">
+          <div class="row1">
                 <div class="smallcolumn left1 ">
                     <img src="data:image/jpg;base64,{{each_post.image}}" width="400px" height="300px"> </br>
                 </div>
