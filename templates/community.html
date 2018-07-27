@@ -13,82 +13,88 @@
   </head>
 
 
-  <body>
-
-    <!-- Navigation -->
-    <nav id="siteNav" class="navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Logo -->
-                <a class="navbar-brand" href="home">
-                	SERVE + CONNECT
-                </a>
-
-            <!-- Navbar links -->
-            <div class="collapse navbar-collapse" id="navbar">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="active">
-                        <a><b>Community</b></a>
-                    </li>
-                    <li>
-                        <a href="friends">Friends</a>
-                    </li>
-                    <li>
-                        <a href="profile">Profile</a>
-                    </li>
-                    <li>
-                        <a href="about">About</a>
-                    </li>
-                </ul>
-
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container -->
-      </nav>
-
-      <div class = "grid">
-          <img class="community_header" src="../templates/images/community_hands.jpg">
-              <div class="community_header">
-              </br><center><a href="/community-post" class="btn btn-primary btn-lg">Post Opportunities</a>
-                <form method="GET" style="font-family: helvetica; font-size: 20px">
-              </br>Location Search: <input type="text" name=q placeholder="{{search_term}}">
-              <button class="btn btn-primary btn-sm">Submit</button>
-              <a href="community" class="btn btn-primary btn-sm">Clear Search</a></center>
-            </br>
-            </br>
-            </div>
-
-
-
-              <div class="post_container">
-          {% for each_post in post_list %}
-                    <img class = "post_image" src="data:image/jpg;base64,{{each_post.image}}" width="400px" height="300px"> </br>
-                  <p>
-                    <b>Event Name: </b> {{each_post.post_name}}  <i><b>Location: </b> {{each_post.post_location}}</br>
-
-                    <i><b>Contact: </b> {{each_post.post_contact}} </b><b>Date: </b>{{each_post.post_date}}</i></br></br>
-                    {{each_post.post_event}}
-                  </p>
-                  {% endfor %}
-              </div>
-            </div>
-    <footer class="page-footer">
-        <div class="small-print">
+    <body>
+      <!-- Navigation -->
+      <nav id="siteNav" class="navbar-default navbar-fixed-top" role="navigation">
           <div class="container">
-            <p class="footer" style="color:#d0706a; font-size: 20px; font-weight: bold; ">Team Git Coding:</br> </p>
-              <a  style="color:#96C0CE" href="https://www.handeland.tech">Erik Handeland,</a><a style="color:#96C0CE" href="https://www.facebook.com/jordan.huyghue"> Jordan Huyghue,</a> <a style="color:#96C0CE" href= "https://www.linkedin.com/in/lina-park-622857158/">Lina Park</a></p>
+              <!-- Logo -->
+                  <a class="navbar-brand" href="home">
+                  	SERVE + CONNECT
+                  </a>
+
+              <!-- Navbar links -->
+              <div class="collapse navbar-collapse" id="navbar">
+                  <ul class="nav navbar-nav navbar-right">
+                      <li class="active">
+                          <a href="community"><b>Community</b></a>
+                      </li>
+                      <li>
+                          <a href="friends">Friends</a>
+                      </li>
+                      <li>
+                          <a href="profile">Profile</a>
+                      </li>
+                      <li>
+                          <a href="about">About</a>
+                      </li>
+                  </ul>
+
+              </div><!-- /.navbar-collapse -->
+          </div><!-- /.container -->
+        </nav>
+
+        <div class = "grid">
+        <img class="community_header" src="../templates/images/community_hands.jpg">
+            <div class="community_header">
+            </br><center><a href="/community-post" class="btn btn-primary btn-lg">Post Opportunities</a>
+              <form method="GET" style="font-family: helvetica; font-size: 20px">
+            </br>Location Search: <input type="text" name=q placeholder="{{search_term}}">
+            <button class="btn btn-primary btn-sm">Submit</button>
+            <a href="community" class="btn btn-primary btn-sm">Clear Search</a></center>
+          </br>
+          </br>
           </div>
+
+        <div class="post_container">
+              {% for each_post in post_list %}
+                  <div>
+                        <img class="post_image" src="data:image/jpg;base64,{{each_post.image}}" width="400px" height="300px"> </br>
+
+                        <p>
+                          <b>Event Name: </b> {{each_post.post_name}} <b>Location: </b></br>
+                          <b>Contact: </b> {{each_post.post_contact}} <b>Date:</b> {{each_post.post_date}}</br>
+                           {{each_post.post_event}}
+                        </p></br></br>
+                </div>
+
+              {% endfor %}
+            </br>
+
+            </fieldset>
+        </div>
+        </div>
         </div>
 
-    </footer>
 
-    <!-- jQuery -->
-    <script src="../js/jquery-1.11.3.min.js"></script>
+        <footer class="page-footer">
+            <div class="small-print">
+              <div class="container">
+                <p class="footer" style="color:#d0706a; font-size: 20px; font-weight: bold; ">Team Git Coding:</br> </p>
+                  <a  style="color:#96C0CE" href="https://www.handeland.tech">Erik Handeland,</a><a style="color:#96C0CE" href="https://www.facebook.com/jordan.huyghue"> Jordan Huyghue,</a> <a style="color:#96C0CE" href= "https://www.linkedin.com/in/lina-park-622857158/">Lina Park</a></p>
+              </div>
+            </div>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../js/bootstrap.min.js"></script>
+        </footer>
+
+      <!-- jQuery -->
+      <script src="../js/jquery-1.11.3.min.js"></script>
+
+      <!-- Bootstrap Core JavaScript -->
+      <script src="../js/bootstrap.min.js"></script>
 
 
-    <!-- Custom Javascript -->
-    <script src="../js/custom.js"></script>
+      <!-- Custom Javascript -->
+      <script src="../js/custom.js"></script>
 
-  </body>
+    </body>
 </html>
