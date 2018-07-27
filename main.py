@@ -50,11 +50,13 @@ class HomePage(webapp2.RequestHandler):
             community = "Community"
             friends = "Friends"
             profile= "Profile"
+            about = "About"
         else:
             log_message = "Sign In"
             community = ""
             friends = ""
             profile = ""
+            about = ""
 
 
         variables = {"user": user,
@@ -62,7 +64,8 @@ class HomePage(webapp2.RequestHandler):
                     "log_message": log_message,
                     "community": community,
                     "friends":friends,
-                    "profile": profile}
+                    "profile": profile,
+                    "about": about}
 
 
         home_template = jinja_env.get_template('home.html')
