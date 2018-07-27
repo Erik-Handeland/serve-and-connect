@@ -146,12 +146,14 @@ class CommunityPostPage(webapp2.RequestHandler):
         post_date = self.request.get("post_date")
         post_user = ndb.Key('JUser', user.email())
         post_name = self.request.get("post_name")
+        post_contact = self.request.get("post_contact")
         post_location = self.request.get("post_location")
         post_event = self.request.get("post_event")
         image = self.request.get("image")
 
 
         JUserPost = CommunityPost(post_user = post_user,
+                            post_contact = post_contact,
                             post_name = post_name,
                             post_date = post_date,
                             post_location = post_location,

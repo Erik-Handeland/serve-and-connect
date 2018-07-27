@@ -62,9 +62,9 @@
           {% for each_post in post_list %}
                     <img class = "post_image" src="data:image/jpg;base64,{{each_post.image}}" width="400px" height="300px"> </br>
                   <p>
-                    <b>Event Name: </b> {{each_post.post_name}} </br>
+                    <b>Event Name: </b> {{each_post.post_name}}  <i><b>Location: </b> {{each_post.post_location}}</br>
 
-                    <i><b>Location: </b> {{each_post.post_location}} </b><b>Date:</b>{{each_post.post_date}}</i></br></br>
+                    <i><b>Contact: </b> {{each_post.post_contact}} </b><b>Date: </b>{{each_post.post_date}}</i></br></br>
                     {{each_post.post_event}}
                   </p>
                   {% endfor %}

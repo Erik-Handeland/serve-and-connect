@@ -21,6 +21,7 @@ class UserPost(ndb.Model):
     post_nickname = ndb.StringProperty()
 
 class CommunityPost(ndb.Model):
+    post_contact = ndb.StringProperty(required = True)
     post_name = ndb.StringProperty(required = True)
     post_date= ndb.StringProperty(required = True)
     post_location = ndb.StringProperty(required = True)
